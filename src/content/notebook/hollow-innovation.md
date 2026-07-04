@@ -5,11 +5,13 @@ date: 2025-09-17
 status: emerging
 maturity: draft
 themes:
+  - pathologies of practice
   - innovation
   - outcomes
   - institutional trust
   - human-centred design
 tags:
+  - pathologies of practice
   - hollow innovation
   - innovation theatre
   - outcomes
