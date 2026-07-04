@@ -2,7 +2,10 @@
 import { defineConfig } from 'astro/config'
 import mdx from '@astrojs/mdx'
 
+const productionSite = 'https://happygeneralist.github.io'
+
 export default defineConfig({
-  site: 'https://happygeneralist.com',
+  site: productionSite,
+  base: '/happygeneralist-site/',
   integrations: [mdx()]
 })
