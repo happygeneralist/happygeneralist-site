@@ -1,0 +1,55 @@
+---
+import { Picture } from 'astro:assets'
+
+type Loading = 'eager' | 'lazy'
+type Variant = 'standard' | 'wide' | 'tool-preview'
+
+interface Props {
+  src: string
+  alt: string
+  caption?: string
+  variant?: Variant
+  loading?: Loading
+  widths?: number[]
+  sizes?: string
+}
+
+const {
+  src,
+  alt,
+  caption,
+  variant = 'standard',
+  loading = 'lazy',
+  widths = [480, 768, 1024, 1440, 1920],
+  sizes = '(min-width: 1320px) 1320px, calc(100vw - 2rem)'
+} = Astro.props
+
+const imageModules = import.meta.glob('../assets/images/**/*.{png,jpg,jpeg,webp,avif}', { eager: true })
+const normalisedSrc = src.replace(/^\//, '')
+const assetKey = normalisedSrc.startsWith('src/assets/images/')
+  ? `../assets/images/${normalisedSrc.replace('src/assets/images/', '')}`
+  : `../assets/images/${normalisedSrc}`
+const imageModule = imageModules[assetKey] as { default: ImageMetadata } | undefined
+const base = import.meta.env.BASE_URL
+const fallbackSrc = src.startsWith('http://') || src.startsWith('https://')
+  ? src
+  : `${base}${src.replace(/^\//, '')}`.replace(/\/\/+/g, '/')
+const className = `responsive-image responsive-image--${variant}`
+---
+
+<figure class={className}>
+  {imageModule ? (
+    <Picture
+      src={imageModule.default}
+      alt={alt}
+      widths={widths}
+      sizes={sizes}
+      formats={['avif', 'webp']}
+      loading={loading}
+      decoding="async"
+    />
+  ) : (
+    <img src={fallbackSrc} alt={alt} loading={loading} decoding="async" />
+  )}
+  {caption && <figcaption>{caption}</figcaption>}
+</figure>
