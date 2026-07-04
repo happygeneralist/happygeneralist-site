@@ -21,6 +21,12 @@ const baseSchema = z.object({
   featured: z.boolean().default(false)
 })
 
+const imageAssetSchema = z.object({
+  src: z.string(),
+  alt: z.string(),
+  caption: z.string().optional()
+})
+
 const contentLoader = (section: string) =>
   glob({
     pattern: '**/*.{md,mdx}',
@@ -42,6 +48,7 @@ const tools = defineCollection({
     helps_with: z.array(z.string()).default([]),
     inputs: z.array(z.string()).default([]),
     outputs: z.array(z.string()).default([]),
+    preview_image: imageAssetSchema.optional(),
     downloads: z.array(z.object({
       label: z.string(),
       href: z.string(),
