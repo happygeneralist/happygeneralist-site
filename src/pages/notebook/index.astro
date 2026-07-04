@@ -14,14 +14,33 @@ entries.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
       <h1>Notebook</h1>
       <p>Working thoughts, observations, fragments and early patterns.</p>
     </header>
-    <div class="card-grid">
-      {entries.map((entry) => (
+
+    <section aria-labelledby="notebook-categories-heading" style="margin-bottom: var(--space-7);">
+      <div class="prose">
+        <h2 id="notebook-categories-heading">Notebook paths</h2>
+      </div>
+      <div class="card-grid">
         <article class="card">
-          <p class="meta">{entry.data.status}</p>
-          <h2><a href={href(`notebook/${entry.id}/`)}>{entry.data.title}</a></h2>
-          <p>{entry.data.description}</p>
+          <p class="meta">category</p>
+          <h3><a href={href('notebook/pathologies-of-practice/')}>Pathologies of practice</a></h3>
+          <p>Recurring dysfunctions in governance, policy, finance and institutional life.</p>
         </article>
-      ))}
-    </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="notebook-entries-heading">
+      <div class="prose">
+        <h2 id="notebook-entries-heading">Entries</h2>
+      </div>
+      <div class="card-grid">
+        {entries.map((entry) => (
+          <article class="card">
+            <p class="meta">{entry.data.status}</p>
+            <h3><a href={href(`notebook/${entry.id}/`)}>{entry.data.title}</a></h3>
+            <p>{entry.data.description}</p>
+          </article>
+        ))}
+      </div>
+    </section>
   </section>
 </BaseLayout>
