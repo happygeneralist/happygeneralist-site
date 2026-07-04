@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+
+const entries = await getCollection('labs')
+entries.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+---
+
+<BaseLayout title="Labs" description="Applied experiments, case studies, prototypes and complex use cases.">
+  <section class="page">
+    <header class="page-header prose">
+      <h1>Labs</h1>
+      <p>Applied experiments, case studies, prototypes and complex use cases.</p>
+    </header>
+    <div class="card-grid">
+      {entries.map((entry) => (
+        <article class="card">
+          <p class="meta">{entry.data.lab_type} - {entry.data.project_status}</p>
+          <h2><a href={`/labs/${entry.slug}/`}>{entry.data.title}</a></h2>
+          <p>{entry.data.description}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
