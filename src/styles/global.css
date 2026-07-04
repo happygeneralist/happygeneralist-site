@@ -1,11 +1,13 @@
 :root {
-  --colour-text: #0b0c0c;
-  --colour-muted: #505a5f;
-  --colour-border: #b1b4b6;
+  --colour-text: #111111;
+  --colour-muted: #5f6368;
+  --colour-border: #e4e4e7;
+  --colour-border-strong: #c7c7cc;
   --colour-background: #ffffff;
-  --colour-surface: #f3f2f1;
-  --colour-link: #1d70b8;
-  --colour-link-hover: #003078;
+  --colour-surface: #fafafa;
+  --colour-surface-quiet: #f6f6f4;
+  --colour-link: #0b5cad;
+  --colour-link-hover: #083b70;
   --colour-action: #4f46e5;
   --colour-action-hover: #312e81;
   --colour-focus: #ffdd00;
@@ -22,6 +24,9 @@
   --space-6: 2rem;
   --space-7: 3rem;
   --space-8: 4rem;
+  --radius-s: 0.35rem;
+  --radius-m: 0.75rem;
+  --shadow-soft: 0 1px 2px rgb(0 0 0 / 0.04), 0 8px 24px rgb(0 0 0 / 0.04);
 }
 
 * {
@@ -69,11 +74,13 @@ svg {
 
 a {
   color: var(--colour-link);
-  text-underline-offset: 0.16em;
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 0.08em;
 }
 
 a:hover {
   color: var(--colour-link-hover);
+  text-decoration-thickness: 0.12em;
 }
 
 .button {
@@ -86,6 +93,7 @@ a:hover {
   background: var(--colour-action);
   font-weight: 700;
   text-decoration: none;
+  box-shadow: 0 1px 0 rgb(0 0 0 / 0.08);
 }
 
 .button:hover {
@@ -95,6 +103,7 @@ a:hover {
 
 .site-header {
   border-bottom: 1px solid var(--colour-border);
+  background: rgb(255 255 255 / 0.96);
 }
 
 .site-header__inner,
@@ -187,8 +196,9 @@ a:hover {
   max-width: var(--measure);
   margin: 0 0 var(--space-6);
   padding: var(--space-4);
-  border-left: 6px solid var(--colour-link);
-  background: var(--colour-surface);
+  border-left: 4px solid var(--colour-link);
+  border-radius: 0 var(--radius-s) var(--radius-s) 0;
+  background: var(--colour-surface-quiet);
 }
 
 .callout p {
@@ -232,8 +242,9 @@ a:hover {
   width: 100%;
   max-height: 38rem;
   object-fit: contain;
-  border: 1px solid var(--colour-border);
+  border-radius: var(--radius-m);
   background: var(--colour-surface);
+  box-shadow: var(--shadow-soft);
 }
 
 .tool-preview figcaption {
@@ -252,8 +263,9 @@ a:hover {
 .tool-module,
 .tool-download-panel {
   padding: var(--space-5);
-  border: 1px solid var(--colour-border);
+  border-radius: var(--radius-m);
   background: var(--colour-surface);
+  box-shadow: inset 0 0 0 1px var(--colour-border);
 }
 
 .tool-module h2,
@@ -305,8 +317,9 @@ a:hover {
   width: 100%;
   aspect-ratio: 16 / 7;
   object-fit: cover;
-  border: 1px solid var(--colour-border);
+  border-radius: var(--radius-m);
   background: var(--colour-surface);
+  box-shadow: var(--shadow-soft);
 }
 
 .visual-signal figcaption {
@@ -319,9 +332,9 @@ a:hover {
   max-width: var(--measure);
   margin: var(--space-6) 0;
   padding: var(--space-5);
-  border: 1px solid var(--colour-border);
-  border-left: 6px solid var(--colour-focus);
-  background: var(--colour-surface);
+  border-radius: var(--radius-m);
+  background: var(--colour-surface-quiet);
+  box-shadow: inset 0 0 0 1px var(--colour-border);
 }
 
 .definition-card__label {
@@ -361,8 +374,9 @@ a:hover {
 
 .notebook-panel {
   padding: var(--space-5);
-  border: 1px solid var(--colour-border);
+  border-radius: var(--radius-m);
   background: var(--colour-surface);
+  box-shadow: inset 0 0 0 1px var(--colour-border);
 }
 
 .notebook-panel h2,
@@ -378,8 +392,9 @@ a:hover {
 
 .card {
   padding: var(--space-5);
-  border: 1px solid var(--colour-border);
+  border-radius: var(--radius-m);
   background: var(--colour-background);
+  box-shadow: inset 0 0 0 1px var(--colour-border);
 }
 
 .card h2,
@@ -404,8 +419,9 @@ a:hover {
 .tag {
   display: inline-block;
   padding: 0.15rem 0.45rem;
-  background: var(--colour-surface);
-  border: 1px solid var(--colour-border);
+  border-radius: var(--radius-s);
+  background: var(--colour-surface-quiet);
+  color: var(--colour-muted);
   font-size: 0.9rem;
 }
 
