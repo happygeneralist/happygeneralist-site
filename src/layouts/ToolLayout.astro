@@ -1,5 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro'
+import ResponsiveImage from '../components/ResponsiveImage.astro'
 
 interface Download {
   label: string
@@ -73,10 +74,13 @@ const primaryDownload = downloads[0]
     </header>
 
     {previewImage && (
-      <figure class="tool-preview">
-        <img src={resolveAsset(previewImage.src)} alt={previewImage.alt} loading="lazy" decoding="async" />
-        {previewImage.caption && <figcaption>{previewImage.caption}</figcaption>}
-      </figure>
+      <ResponsiveImage
+        src={previewImage.src}
+        alt={previewImage.alt}
+        caption={previewImage.caption}
+        variant="tool-preview"
+        sizes="(min-width: 1320px) 1320px, calc(100vw - 2rem)"
+      />
     )}
 
     <section class="tool-modules" aria-label="Tool overview">
