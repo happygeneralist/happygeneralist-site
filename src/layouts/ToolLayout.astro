@@ -1,0 +1,136 @@
+---
+import BaseLayout from './BaseLayout.astro'
+
+interface Download {
+  label: string
+  href: string
+  type?: string
+}
+
+interface ImageAsset {
+  src: string
+  alt: string
+  caption?: string
+}
+
+interface Props {
+  title: string
+  description: string
+  date?: Date
+  status?: string
+  themes?: string[]
+  toolType?: string
+  useWhen?: string[]
+  helpsWith?: string[]
+  inputs?: string[]
+  outputs?: string[]
+  downloads?: Download[]
+  previewImage?: ImageAsset
+}
+
+const {
+  title,
+  description,
+  date,
+  status,
+  themes = [],
+  toolType = 'tool',
+  useWhen = [],
+  helpsWith = [],
+  inputs = [],
+  outputs = [],
+  downloads = [],
+  previewImage
+} = Astro.props
+
+const primaryDownload = downloads[0]
+---
+
+<BaseLayout title={title} description={description}>
+  <article class="tool-page">
+    <header class="tool-hero">
+      <div class="tool-hero__content">
+        <p class="meta">{toolType}{status ? ` - ${status}` : ''}{date ? ` - ${date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}` : ''}</p>
+        <h1>{title}</h1>
+        <p class="tool-hero__lede">{description}</p>
+        {themes.length > 0 && (
+          <ul class="tag-list" aria-label="Themes">
+            {themes.map((theme) => <li class="tag">{theme}</li>)}
+          </ul>
+        )}
+        {primaryDownload && (
+          <p class="tool-hero__action">
+            <a class="button" href={primaryDownload.href}>{primaryDownload.label}</a>
+          </p>
+        )}
+      </div>
+
+      <aside class="tool-snapshot" aria-label="Tool snapshot">
+        <h2>Tool snapshot</h2>
+        {useWhen.length > 0 && (
+          <section>
+            <h3>Use it when</h3>
+            <ul>
+              {useWhen.slice(0, 4).map((item) => <li>{item}</li>)}
+            </ul>
+          </section>
+        )}
+        {helpsWith.length > 0 && (
+          <section>
+            <h3>Helps with</h3>
+            <ul>
+              {helpsWith.slice(0, 4).map((item) => <li>{item}</li>)}
+            </ul>
+          </section>
+        )}
+      </aside>
+    </header>
+
+    {previewImage && (
+      <figure class="tool-preview">
+        <img src={previewImage.src} alt={previewImage.alt} loading="lazy" decoding="async" />
+        {previewImage.caption && <figcaption>{previewImage.caption}</figcaption>}
+      </figure>
+    )}
+
+    <div class="tool-body">
+      <div class="tool-body__main prose">
+        <slot />
+      </div>
+
+      <aside class="tool-body__side" aria-label="Tool details">
+        {outputs.length > 0 && (
+          <section class="tool-side-card">
+            <h2>What you get</h2>
+            <ul>
+              {outputs.map((item) => <li>{item}</li>)}
+            </ul>
+          </section>
+        )}
+
+        {inputs.length > 0 && (
+          <section class="tool-side-card">
+            <h2>What you need</h2>
+            <ul>
+              {inputs.map((item) => <li>{item}</li>)}
+            </ul>
+          </section>
+        )}
+
+        {downloads.length > 0 && (
+          <section class="tool-side-card tool-side-card--download">
+            <h2>Download</h2>
+            <ul class="download-list">
+              {downloads.map((download) => (
+                <li>
+                  <a href={download.href}>{download.label}</a>
+                  {download.type && <span>{download.type}</span>}
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+      </aside>
+    </div>
+  </article>
+</BaseLayout>
