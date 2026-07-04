@@ -26,16 +26,7 @@ const contentLoader = (section: string) =>
 const notebook = defineCollection({
   loader: contentLoader('notebook'),
   schema: baseSchema.extend({
-    entry_type: z.enum(['note', 'observation', 'question', 'pattern', 'fragment']).default('note')
-  })
-})
-
-const ideas = defineCollection({
-  loader: contentLoader('ideas'),
-  schema: baseSchema.extend({
-    idea_type: z.enum(['concept', 'distinction', 'provocation', 'principle', 'pattern']).default('concept'),
-    core_claim: z.string().optional(),
-    useful_when: z.array(z.string()).default([])
+    entry_type: z.enum(['note', 'short-entry', 'essay', 'observation', 'question', 'pattern', 'fragment']).default('note')
   })
 })
 
@@ -61,19 +52,8 @@ const labs = defineCollection({
   })
 })
 
-const themes = defineCollection({
-  loader: contentLoader('themes'),
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    theme_type: z.enum(['domain', 'method', 'concept', 'practice-area']).default('concept')
-  })
-})
-
 export const collections = {
   notebook,
-  ideas,
   tools,
-  labs,
-  themes
+  labs
 }
