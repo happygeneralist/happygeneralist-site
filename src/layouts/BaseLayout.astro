@@ -1,0 +1,45 @@
+---
+import '../styles/global.css'
+
+interface Props {
+  title: string
+  description?: string
+}
+
+const { title, description = 'Happygeneralist: public thinking, tools, labs and civic design experiments.' } = Astro.props
+const pageTitle = title === 'Happygeneralist' ? title : `${title} - Happygeneralist`
+---
+
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="site-title" href="/">Happygeneralist</a>
+        <nav class="site-nav" aria-label="Main navigation">
+          <a href="/notebook/">Notebook</a>
+          <a href="/ideas/">Ideas</a>
+          <a href="/tools/">Tools</a>
+          <a href="/labs/">Labs</a>
+          <a href="/themes/">Themes</a>
+          <a href="/about/">About</a>
+        </nav>
+      </div>
+    </header>
+    <main id="main-content">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <p>Happygeneralist is a public thinking space for design, civic systems, tools and experiments.</p>
+      </div>
+    </footer>
+  </body>
+</html>
