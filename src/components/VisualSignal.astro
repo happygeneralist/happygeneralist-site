@@ -8,9 +8,13 @@ interface Props {
 
 const { src, alt, caption, variant = 'wide' } = Astro.props
 const className = variant === 'wide' ? 'visual-signal visual-signal--wide' : 'visual-signal'
+const base = import.meta.env.BASE_URL
+const resolvedSrc = src.startsWith('http://') || src.startsWith('https://')
+  ? src
+  : `${base}${src.replace(/^\//, '')}`.replace(/\/\/+/g, '/')
 ---
 
 <figure class={className}>
-  <img src={src} alt={alt} loading="lazy" decoding="async" />
+  <img src={resolvedSrc} alt={alt} loading="lazy" decoding="async" />
   {caption && <figcaption>{caption}</figcaption>}
 </figure>
