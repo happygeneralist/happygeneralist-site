@@ -1,4 +1,6 @@
-import { defineCollection, z } from 'astro:content'
+import { glob } from 'astro/loaders'
+import { defineCollection } from 'astro:content'
+import { z } from 'astro/zod'
 
 const baseSchema = z.object({
   title: z.string(),
@@ -15,15 +17,21 @@ const baseSchema = z.object({
   featured: z.boolean().default(false)
 })
 
+const contentLoader = (section: string) =>
+  glob({
+    pattern: '**/*.{md,mdx}',
+    base: `./src/content/${section}`
+  })
+
 const notebook = defineCollection({
-  type: 'content',
+  loader: contentLoader('notebook'),
   schema: baseSchema.extend({
     entry_type: z.enum(['note', 'observation', 'question', 'pattern', 'fragment']).default('note')
   })
 })
 
 const ideas = defineCollection({
-  type: 'content',
+  loader: contentLoader('ideas'),
   schema: baseSchema.extend({
     idea_type: z.enum(['concept', 'distinction', 'provocation', 'principle', 'pattern']).default('concept'),
     core_claim: z.string().optional(),
@@ -32,7 +40,7 @@ const ideas = defineCollection({
 })
 
 const tools = defineCollection({
-  type: 'content',
+  loader: contentLoader('tools'),
   schema: baseSchema.extend({
     tool_type: z.enum(['canvas', 'checklist', 'prompt', 'method', 'framework', 'diagnostic']).default('framework'),
     use_when: z.array(z.string()).default([]),
@@ -43,7 +51,7 @@ const tools = defineCollection({
 })
 
 const labs = defineCollection({
-  type: 'content',
+  loader: contentLoader('labs'),
   schema: baseSchema.extend({
     lab_type: z.enum(['case-study', 'prototype', 'experiment', 'system', 'visual-essay']).default('experiment'),
     layout: z.enum(['standard', 'magazine', 'canvas', 'interactive']).default('standard'),
@@ -54,7 +62,7 @@ const labs = defineCollection({
 })
 
 const themes = defineCollection({
-  type: 'content',
+  loader: contentLoader('themes'),
   schema: z.object({
     title: z.string(),
     description: z.string(),
