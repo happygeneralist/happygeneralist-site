@@ -1,0 +1,84 @@
+---
+import { getCollection } from 'astro:content'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+
+const base = import.meta.env.BASE_URL
+const href = (path: string) => `${base}${path}`.replace(/\/\/+/g, '/')
+
+const pathologies = await getCollection('notebook', ({ data }) =>
+  data.tags.includes('pathologies of practice') || data.themes.includes('pathologies of practice')
+)
+
+pathologies.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+---
+
+<BaseLayout title="Pathologies of practice" description="A notebook category for naming recurring dysfunctions in governance, policy, finance and institutional life.">
+  <article class="page">
+    <header class="page-header prose">
+      <p class="meta">Notebook category</p>
+      <h1>Pathologies of practice</h1>
+      <p>A category for naming recurring dysfunctions in governance, policy, finance and institutional life.</p>
+    </header>
+
+    <div class="prose">
+      <h2>What is a pathology of practice?</h2>
+      <p>Pathologies of Practice is a category for naming recurring dysfunctions in governance, policy, finance and institutional life.</p>
+      <p>These are not individual failings. They are systemic behaviours that wear the mask of efficiency, innovation or care, while quietly eroding our collective capacity to solve complex problems. They endure because power structures reward them and institutional language legitimises them.</p>
+
+      <h2>Why this category is necessary</h2>
+      <p><strong>Dysfunctions hide in plain sight.</strong> Without names, harmful practices get naturalised as “best practice” or “just how things are done”.</p>
+      <p><strong>Appearance often masks absence.</strong> Post-it workshops, dashboards, outcome metrics or staged consultations may signal progress, but they can erase the very practices that matter most: synthesis, reframing and relational intelligence.</p>
+      <p><strong>Epistemic asymmetry is part of the problem.</strong> Disciplines like finance, economics and policy are institutionally legitimised. Design and relational or embodied ways of knowing are treated as soft or decorative. When institutions cosplay design, they reinforce this imbalance and further devalue design as a profession.</p>
+      <p><strong>Diagnosis matters.</strong> By pathologising behaviours, not people, we surface what is missing, what is lost and why systems fail.</p>
+
+      <h2>Intentions</h2>
+      <ul>
+        <li><strong>Make dysfunction legible:</strong> give language to hidden dynamics so they cannot pass as legitimate practice.</li>
+        <li><strong>Reclaim design’s epistemic integrity:</strong> show that abductive reasoning, synthesis, reframing and relational knowing are core to solving complex problems, not optional extras.</li>
+        <li><strong>Balance critique with countermoves:</strong> name not only what is wrong but also what integrity would require.</li>
+        <li><strong>Ground in evidence:</strong> draw on lived cases to show how these dynamics play out in practice.</li>
+        <li><strong>Build a diagnostic catalogue:</strong> create a shared resource for surfacing, comparing and challenging systemic dysfunctions that undermine outcomes.</li>
+      </ul>
+    </div>
+
+    <section aria-labelledby="pathologies-heading" style="margin-top: var(--space-7);">
+      <div class="prose">
+        <h2 id="pathologies-heading">Pathologies</h2>
+        <p>These cards are generated from Notebook entries tagged as pathologies of practice.</p>
+      </div>
+      <div class="card-grid">
+        {pathologies.map((entry) => (
+          <article class="card">
+            <p class="meta">{entry.data.status} - {entry.data.date.toLocaleDateString('en-GB', { dateStyle: 'long' })}</p>
+            <h3><a href={href(`notebook/${entry.id}/`)}>{entry.data.title}</a></h3>
+            <p>{entry.data.description}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="prose" aria-labelledby="references-heading" style="margin-top: var(--space-7);">
+      <h2 id="references-heading">References and related work</h2>
+      <p>This notebook is not the first to notice dysfunction in organisational life. Others have mapped the terrain in different ways, mostly through management theory, systems thinking or critiques of innovation.</p>
+
+      <h3>Organisational pathology</h3>
+      <ul>
+        <li><a href="https://link.springer.com/">Springer: organisational pathology</a> — overview of how organisational pathologies are studied and categorised in management and systems theory.</li>
+        <li><a href="https://www.researchgate.net/">ResearchGate: organisational pathology</a> — scholarly definitions of organisational pathologies and their implications for management.</li>
+        <li>José Pérez Ríos (2008) — a structured taxonomy for classifying types of organisational dysfunction.</li>
+        <li>Springer (2011) — systems theory perspective on organisational pathologies.</li>
+      </ul>
+
+      <h3>Innovation pathologies</h3>
+      <ul>
+        <li><a href="https://ssir.org/articles/entry/when_innovation_goes_wrong">Stanford Social Innovation Review: When Innovation Goes Wrong</a> — article on common pathologies in social change innovation.</li>
+        <li>Christian Seelos and Johanna Mair (2016) — deeper research paper on systemic failures in innovation practice.</li>
+      </ul>
+
+      <h3>Related context: systemic design</h3>
+      <ul>
+        <li><a href="https://en.wikipedia.org/wiki/Systemic_design">Systemic design</a> — does not use pathology language, but shares the goal of diagnosing and redesigning systemic dysfunctions.</li>
+      </ul>
+    </section>
+  </article>
+</BaseLayout>
