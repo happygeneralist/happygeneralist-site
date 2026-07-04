@@ -86,21 +86,37 @@ a:hover {
 .site-header__inner {
   display: flex;
   flex-wrap: wrap;
-  align-items: baseline;
-  gap: var(--space-4) var(--space-6);
-  padding-block: var(--space-4);
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3) var(--space-6);
+  padding-block: var(--space-3);
 }
 
-.site-title {
-  font-weight: 700;
-  color: var(--colour-text);
-  text-decoration: none;
+.site-brand {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.site-brand img {
+  display: block;
+  width: auto;
+  max-width: none;
+}
+
+.site-brand--full img {
+  height: clamp(2.25rem, 6vw, 4rem);
+}
+
+.site-brand--mark img {
+  height: 2rem;
 }
 
 .site-nav {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-4);
+  margin-left: auto;
 }
 
 .site-nav a {
