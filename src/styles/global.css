@@ -158,6 +158,30 @@ a:hover {
   font-weight: 700;
 }
 
+.visual-signal {
+  margin: var(--space-6) 0;
+}
+
+.visual-signal--wide {
+  width: min(100vw - 2rem, var(--page-width));
+  max-width: none;
+}
+
+.visual-signal img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  object-fit: cover;
+  border: 1px solid var(--colour-border);
+  background: var(--colour-surface);
+}
+
+.visual-signal figcaption {
+  margin-top: var(--space-2);
+  color: var(--colour-muted);
+  font-size: 0.95rem;
+}
+
 .definition-card {
   max-width: var(--measure);
   margin: var(--space-6) 0;
