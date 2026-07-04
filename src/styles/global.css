@@ -158,6 +158,35 @@ a:hover {
   font-weight: 700;
 }
 
+.definition-card {
+  max-width: var(--measure);
+  margin: var(--space-6) 0;
+  padding: var(--space-5);
+  border: 1px solid var(--colour-border);
+  border-left: 6px solid var(--colour-focus);
+  background: var(--colour-surface);
+}
+
+.definition-card__label {
+  margin: 0 0 var(--space-3);
+  font-weight: 700;
+  color: var(--colour-muted);
+}
+
+.definition-card__title {
+  margin: 0 0 var(--space-4);
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  line-height: 1.15;
+}
+
+.definition-card__body > :first-child {
+  margin-top: 0;
+}
+
+.definition-card__body > :last-child {
+  margin-bottom: 0;
+}
+
 .entry-meta-note {
   max-width: var(--measure);
   margin-top: var(--space-7);
@@ -165,6 +194,23 @@ a:hover {
   border-top: 1px solid var(--colour-border);
   color: var(--colour-muted);
   font-size: 0.95rem;
+}
+
+.notebook-grid {
+  display: grid;
+  gap: var(--space-5);
+  margin-top: var(--space-6);
+}
+
+.notebook-panel {
+  padding: var(--space-5);
+  border: 1px solid var(--colour-border);
+  background: var(--colour-surface);
+}
+
+.notebook-panel h2,
+.notebook-panel h3 {
+  margin-top: 0;
 }
 
 .card-grid {
@@ -229,6 +275,10 @@ a:hover {
 }
 
 @media (min-width: 900px) {
+  .notebook-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .lab-grid {
     grid-template-columns: 1.2fr 0.8fr;
     align-items: start;
