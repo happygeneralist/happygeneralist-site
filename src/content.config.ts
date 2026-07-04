@@ -14,6 +14,10 @@ const baseSchema = z.object({
   related: z.array(z.string()).default([]),
   origin_repo: z.string().optional(),
   origin_path: z.string().optional(),
+  source_repo: z.string().optional(),
+  source_path: z.string().optional(),
+  source_visibility: z.enum(['public', 'private', 'internal']).optional(),
+  source_note: z.string().optional(),
   featured: z.boolean().default(false)
 })
 
@@ -37,7 +41,12 @@ const tools = defineCollection({
     use_when: z.array(z.string()).default([]),
     helps_with: z.array(z.string()).default([]),
     inputs: z.array(z.string()).default([]),
-    outputs: z.array(z.string()).default([])
+    outputs: z.array(z.string()).default([]),
+    downloads: z.array(z.object({
+      label: z.string(),
+      href: z.string(),
+      type: z.string().optional()
+    })).default([])
   })
 })
 
