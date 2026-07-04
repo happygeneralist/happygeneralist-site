@@ -16,7 +16,7 @@ entries.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
       {entries.map((entry) => (
         <article class="card">
           <p class="meta">{entry.data.status}</p>
-          <h2><a href={`/notebook/${entry.slug}/`}>{entry.data.title}</a></h2>
+          <h2><a href={`/notebook/${entry.id}/`}>{entry.data.title}</a></h2>
           <p>{entry.data.description}</p>
         </article>
       ))}

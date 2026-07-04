@@ -4,7 +4,7 @@ import ContentLayout from '../../layouts/ContentLayout.astro'
 
 export async function getStaticPaths() {
   const entries = await getCollection('ideas')
-  return entries.map((entry) => ({ params: { slug: entry.slug }, props: { entry } }))
+  return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry } }))
 }
 
 const { entry } = Astro.props
