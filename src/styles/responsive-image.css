@@ -1,0 +1,49 @@
+.responsive-image {
+  margin: var(--space-6) 0;
+}
+
+.responsive-image picture {
+  display: block;
+}
+
+.responsive-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-m);
+  background: var(--colour-surface);
+  box-shadow: var(--elevation-2);
+}
+
+.responsive-image figcaption {
+  margin-top: var(--space-2);
+  color: var(--colour-muted);
+  font-size: 0.95rem;
+}
+
+.responsive-image--standard {
+  max-width: var(--measure);
+}
+
+.responsive-image--wide {
+  width: min(100vw - 2rem, var(--page-width));
+  max-width: none;
+}
+
+.responsive-image--wide img {
+  aspect-ratio: 16 / 7;
+  object-fit: cover;
+}
+
+.responsive-image--tool-preview {
+  margin: var(--space-7) 0;
+}
+
+.responsive-image--tool-preview img {
+  max-height: 38rem;
+  object-fit: contain;
+}
+
+.responsive-image--tool-preview figcaption {
+  max-width: var(--measure);
+}
