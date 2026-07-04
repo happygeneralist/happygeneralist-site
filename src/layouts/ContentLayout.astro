@@ -1,0 +1,29 @@
+---
+import BaseLayout from './BaseLayout.astro'
+
+interface Props {
+  title: string
+  description: string
+  date?: Date
+  status?: string
+  themes?: string[]
+}
+
+const { title, description, date, status, themes = [] } = Astro.props
+---
+
+<BaseLayout title={title} description={description}>
+  <article class="page prose">
+    <header class="page-header">
+      <p class="meta">{status ? status : 'draft'}{date ? ` - ${date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}` : ''}</p>
+      <h1>{title}</h1>
+      <p>{description}</p>
+      {themes.length > 0 && (
+        <ul class="tag-list" aria-label="Themes">
+          {themes.map((theme) => <li class="tag">{theme}</li>)}
+        </ul>
+      )}
+    </header>
+    <slot />
+  </article>
+</BaseLayout>
