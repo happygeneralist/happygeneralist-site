@@ -3,42 +3,74 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 
 const sections = [
   {
+    title: 'Tools',
+    href: '/tools/',
+    description: 'Practical frameworks and reset patterns for making complex work clearer and more usable.'
+  },
+  {
+    title: 'Labs',
+    href: '/labs/',
+    description: 'Applied experiments, prototypes and civic systems work.'
+  },
+  {
     title: 'Notebook',
     href: '/notebook/',
     description: 'Working thoughts, observations, fragments and early patterns.'
   },
   {
-    title: 'Ideas',
-    href: '/ideas/',
-    description: 'Short concepts, distinctions, provocations and named frames.'
+    title: 'About',
+    href: '/about/',
+    description: 'The missing vector: design for outcomes, meaning and civic clarity.'
+  }
+]
+
+const featured = [
+  {
+    title: 'Problem impact canvas',
+    href: '/tools/problem-impact-canvas/',
+    description: 'A practical, human-centred tool for making sense of complex challenges before rushing into solutions.'
   },
   {
-    title: 'Tools',
-    href: '/tools/',
-    description: 'Canvases, methods, prompts, frameworks and reusable structures.'
-  },
-  {
-    title: 'Labs',
-    href: '/labs/',
-    description: 'Applied experiments, case studies, prototypes and complex use cases.'
+    title: 'Epistemic precision reset',
+    href: '/tools/epistemic-precision-reset/',
+    description: 'A reset pattern for stripping back flattened AI output and starting from fidelity, visible reasoning and precision.'
   }
 ]
 ---
 
-<BaseLayout title="Happygeneralist">
+<BaseLayout title="Happygeneralist" description="Designing for outcomes, repair and civic clarity.">
   <section class="page">
     <header class="page-header prose">
-      <h1>Public thinking, tools and experiments for civic design.</h1>
-      <p>Happygeneralist is a working space for making complex ideas clearer, more usable and more alive.</p>
+      <h1>Designing for outcomes, repair and civic clarity</h1>
+      <p>Happygeneralist is a public thinking space for tools, labs and writing about making complex systems more visible, usable and humane.</p>
     </header>
 
-    <div class="card-grid">
-      {sections.map((section) => (
-        <article class="card">
-          <h2><a href={section.href}>{section.title}</a></h2>
-          <p>{section.description}</p>
-        </article>
-      ))}
-    </div>
+    <section aria-labelledby="featured-heading">
+      <div class="prose">
+        <h2 id="featured-heading">Featured</h2>
+      </div>
+      <div class="card-grid">
+        {featured.map((item) => (
+          <article class="card">
+            <h3><a href={item.href}>{item.title}</a></h3>
+            <p>{item.description}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section aria-labelledby="sections-heading" style="margin-top: var(--space-7);">
+      <div class="prose">
+        <h2 id="sections-heading">Explore</h2>
+      </div>
+      <div class="card-grid">
+        {sections.map((section) => (
+          <article class="card">
+            <h3><a href={section.href}>{section.title}</a></h3>
+            <p>{section.description}</p>
+          </article>
+        ))}
+      </div>
+    </section>
   </section>
 </BaseLayout>
