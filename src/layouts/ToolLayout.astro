@@ -64,26 +64,6 @@ const primaryDownload = downloads[0]
           </p>
         )}
       </div>
-
-      <aside class="tool-snapshot" aria-label="Tool snapshot">
-        <h2>Tool snapshot</h2>
-        {useWhen.length > 0 && (
-          <section>
-            <h3>Use it when</h3>
-            <ul>
-              {useWhen.slice(0, 4).map((item) => <li>{item}</li>)}
-            </ul>
-          </section>
-        )}
-        {helpsWith.length > 0 && (
-          <section>
-            <h3>Helps with</h3>
-            <ul>
-              {helpsWith.slice(0, 4).map((item) => <li>{item}</li>)}
-            </ul>
-          </section>
-        )}
-      </aside>
     </header>
 
     {previewImage && (
@@ -93,44 +73,63 @@ const primaryDownload = downloads[0]
       </figure>
     )}
 
+    <section class="tool-modules" aria-label="Tool overview">
+      {useWhen.length > 0 && (
+        <section class="tool-module">
+          <h2>Use it when</h2>
+          <ul>
+            {useWhen.map((item) => <li>{item}</li>)}
+          </ul>
+        </section>
+      )}
+
+      {helpsWith.length > 0 && (
+        <section class="tool-module">
+          <h2>Helps with</h2>
+          <ul>
+            {helpsWith.map((item) => <li>{item}</li>)}
+          </ul>
+        </section>
+      )}
+
+      {outputs.length > 0 && (
+        <section class="tool-module">
+          <h2>What you get</h2>
+          <ul>
+            {outputs.map((item) => <li>{item}</li>)}
+          </ul>
+        </section>
+      )}
+
+      {inputs.length > 0 && (
+        <section class="tool-module">
+          <h2>What you need</h2>
+          <ul>
+            {inputs.map((item) => <li>{item}</li>)}
+          </ul>
+        </section>
+      )}
+    </section>
+
     <div class="tool-body">
       <div class="tool-body__main prose">
         <slot />
       </div>
 
-      <aside class="tool-body__side" aria-label="Tool details">
-        {outputs.length > 0 && (
-          <section class="tool-side-card">
-            <h2>What you get</h2>
-            <ul>
-              {outputs.map((item) => <li>{item}</li>)}
-            </ul>
-          </section>
-        )}
-
-        {inputs.length > 0 && (
-          <section class="tool-side-card">
-            <h2>What you need</h2>
-            <ul>
-              {inputs.map((item) => <li>{item}</li>)}
-            </ul>
-          </section>
-        )}
-
-        {downloads.length > 0 && (
-          <section class="tool-side-card tool-side-card--download">
-            <h2>Download</h2>
-            <ul class="download-list">
-              {downloads.map((download) => (
-                <li>
-                  <a href={download.href}>{download.label}</a>
-                  {download.type && <span>{download.type}</span>}
-                </li>
-              ))}
-            </ul>
-          </section>
-        )}
-      </aside>
+      {downloads.length > 0 && (
+        <aside class="tool-download-panel" aria-label="Download this tool">
+          <h2>Start using it</h2>
+          <p>Download the canvas and use it as a shared framing artefact with your team.</p>
+          <ul class="download-list">
+            {downloads.map((download) => (
+              <li>
+                <a class="button" href={download.href}>{download.label}</a>
+                {download.type && <span>{download.type}</span>}
+              </li>
+            ))}
+          </ul>
+        </aside>
+      )}
     </div>
   </article>
 </BaseLayout>
