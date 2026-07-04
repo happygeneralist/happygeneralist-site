@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+
+const entries = await getCollection('themes')
+entries.sort((a, b) => a.data.title.localeCompare(b.data.title))
+---
+
+<BaseLayout title="Themes" description="Cross-site navigation across ideas, tools, labs and notebook entries.">
+  <section class="page">
+    <header class="page-header prose">
+      <h1>Themes</h1>
+      <p>Cross-site navigation across ideas, tools, labs and notebook entries.</p>
+    </header>
+    <div class="card-grid">
+      {entries.map((entry) => (
+        <article class="card">
+          <p class="meta">{entry.data.theme_type}</p>
+          <h2><a href={`/themes/${entry.slug}/`}>{entry.data.title}</a></h2>
+          <p>{entry.data.description}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
