@@ -34,7 +34,7 @@ outputs:
   - Two or three outcomes that describe meaningful improvement
   - A short driver statement that explains why action is needed
 preview_image:
-  src: https://happygeneralist.com/wp-content/uploads/2025/09/problem-impact-canvas-v1.4.png
+  src: /images/tools/problem-impact-canvas/problem-impact-canvas-preview.png.png
   alt: Blank Problem Impact Canvas worksheet showing sections for current reality, preferred reality, affected parties, needs, driver, current impact and outcomes.
   caption: The Problem Impact Canvas is designed to make the problem space visible before people commit to solutions.
 origin_repo: current-happygeneralist-wordpress-site
