@@ -1,0 +1,30 @@
+---
+import BaseLayout from './BaseLayout.astro'
+
+interface Props {
+  title: string
+  description: string
+  status?: string
+  themes?: string[]
+}
+
+const { title, description, status = 'concept', themes = [] } = Astro.props
+---
+
+<BaseLayout title={title} description={description}>
+  <article class="lab-shell">
+    <header class="page-header prose">
+      <p class="meta">Lab - {status}</p>
+      <h1>{title}</h1>
+      <p>{description}</p>
+      {themes.length > 0 && (
+        <ul class="tag-list" aria-label="Themes">
+          {themes.map((theme) => <li class="tag">{theme}</li>)}
+        </ul>
+      )}
+    </header>
+    <div class="lab-grid">
+      <slot />
+    </div>
+  </article>
+</BaseLayout>
