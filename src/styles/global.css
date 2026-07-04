@@ -11,6 +11,8 @@
   --colour-focus: #ffdd00;
   --colour-focus-text: #0b0c0c;
   --page-width: 1100px;
+  --tool-page-width: 1320px;
+  --lab-page-width: 1440px;
   --measure: 68ch;
   --space-1: 0.25rem;
   --space-2: 0.5rem;
@@ -97,9 +99,13 @@ a:hover {
 
 .site-header__inner,
 .site-footer__inner,
-.page,
-.tool-page {
+.page {
   width: min(100% - 2rem, var(--page-width));
+  margin-inline: auto;
+}
+
+.tool-page {
+  width: min(100% - 2rem, var(--tool-page-width));
   margin-inline: auto;
 }
 
@@ -196,40 +202,25 @@ a:hover {
 }
 
 .tool-hero {
-  display: grid;
-  gap: var(--space-6);
-  align-items: start;
+  max-width: 56rem;
 }
 
 .tool-hero h1 {
-  max-width: 10ch;
+  max-width: 12ch;
   margin: var(--space-2) 0 var(--space-4);
-  font-size: clamp(3rem, 10vw, 6.5rem);
+  font-size: clamp(3rem, 9vw, 6.25rem);
   line-height: 0.92;
   letter-spacing: -0.055em;
 }
 
 .tool-hero__lede {
-  max-width: 46rem;
-  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  max-width: 48rem;
+  font-size: clamp(1.25rem, 2.4vw, 1.75rem);
   line-height: 1.35;
 }
 
 .tool-hero__action {
   margin-top: var(--space-5);
-}
-
-.tool-snapshot,
-.tool-side-card {
-  padding: var(--space-5);
-  border: 1px solid var(--colour-border);
-  background: var(--colour-surface);
-}
-
-.tool-snapshot h2,
-.tool-snapshot h3,
-.tool-side-card h2 {
-  margin-top: 0;
 }
 
 .tool-preview {
@@ -239,35 +230,63 @@ a:hover {
 .tool-preview img {
   display: block;
   width: 100%;
-  max-height: 34rem;
+  max-height: 38rem;
   object-fit: contain;
   border: 1px solid var(--colour-border);
   background: var(--colour-surface);
 }
 
 .tool-preview figcaption {
+  max-width: var(--measure);
   margin-top: var(--space-2);
   color: var(--colour-muted);
   font-size: 0.95rem;
 }
 
-.tool-body {
+.tool-modules {
   display: grid;
-  gap: var(--space-7);
+  gap: var(--space-4);
+  margin: var(--space-7) 0;
 }
 
-.tool-body__side {
+.tool-module,
+.tool-download-panel {
+  padding: var(--space-5);
+  border: 1px solid var(--colour-border);
+  background: var(--colour-surface);
+}
+
+.tool-module h2,
+.tool-download-panel h2 {
+  margin-top: 0;
+}
+
+.tool-module ul {
+  padding-left: 1.2rem;
+}
+
+.tool-body {
   display: grid;
-  gap: var(--space-5);
-  align-content: start;
+  gap: var(--space-6);
+  align-items: start;
+}
+
+.tool-body__main {
+  max-width: var(--measure);
+}
+
+.tool-download-panel {
+  max-width: 28rem;
 }
 
 .download-list {
-  padding-left: 1.2rem;
+  padding: 0;
+  list-style: none;
 }
 
 .download-list span {
   display: block;
+  margin-top: var(--space-2);
   color: var(--colour-muted);
   font-size: 0.95rem;
 }
@@ -402,7 +421,7 @@ a:hover {
 }
 
 .lab-shell {
-  width: min(100% - 2rem, 1440px);
+  width: min(100% - 2rem, var(--lab-page-width));
   margin-inline: auto;
   padding-block: var(--space-7);
 }
@@ -412,13 +431,19 @@ a:hover {
   gap: var(--space-5);
 }
 
-@media (min-width: 900px) {
-  .tool-hero {
-    grid-template-columns: minmax(0, 1.4fr) minmax(18rem, 0.7fr);
+@media (min-width: 760px) {
+  .tool-modules {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1000px) {
+  .tool-modules {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .tool-body {
-    grid-template-columns: minmax(0, var(--measure)) minmax(16rem, 0.65fr);
+    grid-template-columns: minmax(0, var(--measure)) minmax(18rem, 0.6fr);
   }
 
   .notebook-grid {
