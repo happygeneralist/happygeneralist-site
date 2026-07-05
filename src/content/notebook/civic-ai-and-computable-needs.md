@@ -17,6 +17,7 @@ tags:
   - user needs
   - AI-assisted design
   - public service
+  - stopwatch productivity
 entry_type: essay
 source_note: Working Happygeneralist theory note. Claims should be treated as provisional and reviewed before being used as formal argumentation.
 related:
@@ -56,6 +57,34 @@ A civic system does not only need to process more information. It needs to prese
 - redress
 
 If AI improves throughput while weakening that relationship, it can create a more efficient version of the same underlying failure.
+
+## The stopwatch productivity trap
+
+This connects to a wider concern: AI is often measured as if its main value is stopwatch productivity.
+
+That frame asks how much faster existing tasks can be completed. It is useful for some operational questions, but it is too narrow for civic systems.
+
+A stopwatch-productivity view can create a reinforcing loop:
+
+- speed becomes the main evidence of value
+- fast execution is rewarded over reflection, integration and judgement
+- policy and organisational claims focus on efficiency savings
+- AI tools are optimised for throughput, bulk generation and autocomplete
+- the resulting tools make speed easier to measure than capability, trust or resilience
+
+The risk is not only mismeasurement. The risk is that measurement reshapes the system. If AI is bought, governed and evaluated mainly as an efficiency machine, then the tools, workforce practices and institutional incentives around it may all become less capable of noticing whether the right problem is being solved.
+
+For civic AI, that matters because the relevant question is not only:
+
+```text
+Did the system process more work faster?
+```
+
+It is also:
+
+```text
+Did the system expand capability, preserve legitimacy, reduce burden, and make better public judgement possible?
+```
 
 ## Semantic detection is not civic reasoning
 
@@ -171,3 +200,4 @@ The immediate goal is not to automate civic judgement. The goal is to make the e
 - How can AI support capability restoration without pretending to measure dignity directly?
 - How can context rot be reduced by preserving civic anchors as explicit objects?
 - What should remain human judgement even if the system can compute a signal?
+- What would a capability-based alternative to stopwatch productivity look like for public-service AI?
