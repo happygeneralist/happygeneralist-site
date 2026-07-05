@@ -1,0 +1,87 @@
+---
+import BaseLayout from './BaseLayout.astro'
+
+interface SectionLink {
+  label: string
+  href: string
+}
+
+interface ExtractLink {
+  title: string
+  href: string
+  description?: string
+}
+
+interface Props {
+  title: string
+  description: string
+  date?: Date
+  status?: string
+  themes?: string[]
+  originNote?: string
+  sections?: SectionLink[]
+  extracts?: ExtractLink[]
+}
+
+const {
+  title,
+  description,
+  date,
+  status,
+  themes = [],
+  originNote,
+  sections = [],
+  extracts = []
+} = Astro.props
+---
+
+<BaseLayout title={title} description={description}>
+  <article class="longform-page">
+    <header class="longform-hero">
+      <p class="meta">{status ? status : 'draft'}{date ? ` - ${date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}` : ''}</p>
+      <h1>{title}</h1>
+      <p class="longform-hero__lede">{description}</p>
+      {originNote && <p class="longform-origin">{originNote}</p>}
+      {themes.length > 0 && (
+        <ul class="tag-list" aria-label="Themes">
+          {themes.map((theme) => <li class="tag">{theme}</li>)}
+        </ul>
+      )}
+    </header>
+
+    <div class="longform-shell">
+      {(sections.length > 0 || extracts.length > 0) && (
+        <aside class="longform-spine" aria-label="Longform essay navigation">
+          {sections.length > 0 && (
+            <nav class="longform-spine__section" aria-label="On this page">
+              <h2>On this page</h2>
+              <ol>
+                {sections.map((section) => (
+                  <li><a href={section.href}>{section.label}</a></li>
+                ))}
+              </ol>
+            </nav>
+          )}
+
+          {extracts.length > 0 && (
+            <section class="longform-spine__section">
+              <h2>Extracts to develop</h2>
+              <ul>
+                {extracts.map((extract) => (
+                  <li>
+                    <a href={extract.href}>{extract.title}</a>
+                    {extract.description && <p>{extract.description}</p>}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+        </aside>
+      )}
+
+      <div class="longform-content prose">
+        <slot />
+      </div>
+    </div>
+  </article>
+</BaseLayout>
