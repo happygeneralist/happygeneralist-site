@@ -47,3 +47,20 @@
 .responsive-image--tool-preview figcaption {
   max-width: var(--measure);
 }
+
+.responsive-image--longform-hero {
+  margin: 0 0 var(--space-7);
+}
+
+.responsive-image--longform-hero img {
+  width: 100%;
+  max-height: 38rem;
+  aspect-ratio: 16 / 8;
+  object-fit: cover;
+  border-radius: var(--radius-m);
+  box-shadow: var(--elevation-3);
+}
+
+.responsive-image--longform-hero figcaption {
+  max-width: var(--measure);
+}
