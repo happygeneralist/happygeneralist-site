@@ -6,6 +6,14 @@ const base = import.meta.env.BASE_URL
 const href = (path: string) => `${base}${path}`.replace(/\/\/+/g, '/')
 const entries = await getCollection('notebook')
 entries.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+
+const longformEntries = entries.filter((entry) =>
+  entry.data.entry_type === 'longform' || entry.data.layout_variant === 'longform'
+)
+
+const standardEntries = entries.filter((entry) =>
+  entry.data.entry_type !== 'longform' && entry.data.layout_variant !== 'longform'
+)
 ---
 
 <BaseLayout title="Notebook" description="Working thoughts, observations, fragments and early patterns.">
@@ -33,12 +41,30 @@ entries.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
       </div>
     </section>
 
+    {longformEntries.length > 0 && (
+      <section aria-labelledby="notebook-longform-heading" style="margin-bottom: var(--space-7);">
+        <div class="prose">
+          <h2 id="notebook-longform-heading">Longform essays</h2>
+          <p>Longer developed pieces, talks and expanded arguments.</p>
+        </div>
+        <div class="card-grid">
+          {longformEntries.map((entry) => (
+            <article class="card">
+              <p class="meta">{entry.data.status}</p>
+              <h3><a href={href(`notebook/${entry.id}/`)}>{entry.data.title}</a></h3>
+              <p>{entry.data.description}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+    )}
+
     <section aria-labelledby="notebook-entries-heading">
       <div class="prose">
         <h2 id="notebook-entries-heading">Entries</h2>
       </div>
       <div class="card-grid">
-        {entries.map((entry) => (
+        {standardEntries.map((entry) => (
           <article class="card">
             <p class="meta">{entry.data.status}</p>
             <h3><a href={href(`notebook/${entry.id}/`)}>{entry.data.title}</a></h3>
