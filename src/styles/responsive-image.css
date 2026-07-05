@@ -64,3 +64,14 @@
 .responsive-image--longform-hero figcaption {
   max-width: var(--measure);
 }
+
+.responsive-image--lab-preview {
+  margin: 0;
+}
+
+.responsive-image--lab-preview img {
+  max-height: 42rem;
+  object-fit: cover;
+  object-position: top center;
+  box-shadow: var(--elevation-3);
+}
