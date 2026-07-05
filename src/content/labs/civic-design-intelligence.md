@@ -11,7 +11,6 @@ themes:
   - AI-assisted design
 tags:
   - civic design intelligence
-  - SEND
   - evidence
   - public service needs
   - decision intelligence
@@ -33,7 +32,7 @@ outputs:
 
 Civic design intelligence is an experiment in turning fragmented public-service knowledge into something more visible, traceable and usable.
 
-The current worked example uses SEND pathway planning as a starting domain, but the model is intended to be reusable across public services. The aim is not to build another document repository. It is to test whether evidence, user needs, civic needs, pain points, behaviours, insights, outcomes and decisions can be held as structured knowledge objects that are easier to inspect, reuse and challenge.
+The current system is an early worked model for reusable civic knowledge infrastructure. The aim is not to build another document repository. It is to test whether evidence, user needs, civic needs, pain points, behaviours, insights, outcomes and decisions can be held as structured knowledge objects that are easier to inspect, reuse and challenge.
 
 [View the current public snapshot](https://happygeneralist.github.io/civic-design-intelligence/)
 
@@ -82,7 +81,7 @@ The design principle is: make evidence, uncertainty and reasoning more visible, 
 
 ## Current MVP status
 
-The current system is an MVP. It is limited to a small number of service areas and uses SEND pathway planning as a worked example.
+The current system is an MVP. It is limited to a small number of knowledge-object types and service-pattern examples while the operating model is being tested.
 
 At this stage, the public snapshot should be read as:
 
@@ -94,7 +93,7 @@ At this stage, the public snapshot should be read as:
 It should not yet be read as:
 
 - a validated public-service evidence base
-- a complete SEND knowledge model
+- a complete civic knowledge model
 - an official service assessment
 - an automated decision-support product
 
