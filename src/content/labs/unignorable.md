@@ -18,7 +18,7 @@ tags:
   - dignity
   - burden shifting
   - institutional design
-lab_type: framework
+lab_type: experiment
 layout: standard
 project_status: active
 outputs:
