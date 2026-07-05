@@ -29,7 +29,10 @@ const normalisedSrc = src.replace(/^\//, '')
 const assetKey = normalisedSrc.startsWith('src/assets/images/')
   ? `../assets/images/${normalisedSrc.replace('src/assets/images/', '')}`
   : `../assets/images/${normalisedSrc}`
-const imageModule = imageModules[assetKey]
+const assetAliases: Record<string, string> = {
+  '../assets/images/notebook/lean-provocations/exconf-lean-provocations-hero.webp': '../assets/images/notebook/lean-provocations/lean-provocations-exconf-hero.webp'
+}
+const imageModule = imageModules[assetKey] ?? imageModules[assetAliases[assetKey]]
 const base = import.meta.env.BASE_URL
 const fallbackSrc = src.startsWith('http://') || src.startsWith('https://')
   ? src
