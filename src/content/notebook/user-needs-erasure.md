@@ -1,6 +1,6 @@
 ---
 title: User needs erasure
-description: A placeholder note for the pattern where stated user needs disappear, are overwritten or become illegible inside institutional processes.
+description: A working definition for the pattern where needs are ignored, minimised, reframed or made illegible inside institutional processes.
 date: 2026-07-05
 status: rough
 maturity: seed
@@ -11,70 +11,85 @@ themes:
   - public service
 tags:
   - user needs erasure
-  - user needs
   - needs erasure
+  - user needs
   - civic needs
   - evidence
-entry_type: note
+entry_type: definition
+origin_repo: happygeneralist/happygeneralist
+origin_path: 02_Projects/Civic_Design_Intelligence/Outcomes_need_learning_and_delivery_reality.md
+source_visibility: public
+source_note: Working definition developed as part of the theoretical layer around Civic Design Intelligence. This is an authored Happygeneralist term, not a settled external standard.
 related:
   - user-needs-drift
   - user-needs-patterns
   - civic-design-intelligence
 ---
 
-## Stub
-
-User needs erasure is the pattern where the needs of people using or affected by a service are gradually made invisible inside the work of the institution.
-
-The needs may have been discovered, named or evidenced at some point, but they do not survive the journey into policy, delivery, governance, prioritisation or measurement.
-
-This is not always active suppression. It can happen through translation, abstraction, template use, delivery pressure, ownership gaps, or the dominance of organisational needs over lived needs.
-
 ## Working definition
 
-User needs erasure happens when user needs are no longer traceable, contestable or operationally meaningful, even though the organisation may still use the language of being user-centred.
+User needs erasure happens when a policy, project, speech, strategy or service design foregrounds some people’s needs while ignoring, minimising, reframing, individualising or making illegible the needs of others.
 
-The need is erased when it can no longer answer questions like:
+The need may still exist in lived experience, evidence or operational reality, but it is no longer treated as a legitimate input to decision-making.
 
-- who is affected?
-- what do they need to do, understand, access, avoid or recover from?
-- what evidence supports this?
-- what decision is this need shaping?
-- what would show that the need is being met?
+## Status of this term
 
-## How it shows up
+This is a Happygeneralist working definition.
 
-- research findings are summarised until the actual need disappears
-- user needs become content requirements, feature requests or acceptance criteria
-- policy objectives overwrite lived experience without showing the trade-off
-- evidence is kept in reports but not connected to decisions
-- service teams inherit labels without the reasoning behind them
-- institutional priorities are described as if they were user needs
-- people affected by the service have to keep re-explaining needs already known to the system
+It is part of the theoretical underpinning of Civic Design Intelligence and should not be presented as a settled term of art from the wider design field.
+
+The point of naming it is to make a recurring institutional failure easier to see: needs do not only go unmet because delivery is hard. They can be made politically, rhetorically or operationally invisible.
 
 ## Why it matters
 
-User needs erasure is one of the failures Civic Design Intelligence is trying to address.
+Many public-service conflicts are framed as stakeholder disagreement, competing priorities, communication failure or implementation difficulty.
 
-If needs are held as persistent, traceable knowledge objects, then they can survive beyond a single discovery phase, workshop, slide deck or delivery cycle. They can be reviewed, challenged, superseded or linked to evidence instead of being lost.
+Often, underneath those conflicts, some needs are being erased.
+
+For example:
+
+| Rhetorical framing | Possible erased need |
+|---|---|
+| People need clearer information | People may need advocacy, interpretation, power-balancing and earlier support |
+| People need independence | Some people need supported agency, not abandonment |
+| The system needs demand management | People may need timely access before crisis |
+| Services need to be sustainable | People may need sufficiency and lawful support |
+| People need informed choice | There may not be genuinely viable choices available |
+| Local areas need flexibility | People may need equitable access regardless of postcode |
+
+## How it shows up
+
+- evidence is kept in reports but not connected to decisions
+- user needs become content requirements, feature requests or acceptance criteria
+- institutional priorities are described as if they were user needs
+- policy objectives overwrite lived experience without showing the trade-off
+- some needs are individualised as personal difficulty rather than recognised as service or civic failure
+- people affected by the service have to keep re-explaining needs already known to the system
 
 ## Relationship to Civic Design Intelligence
 
-Civic Design Intelligence should help make erasure harder by making needs:
+User needs erasure is one of the failures Civic Design Intelligence is trying to address.
 
-- visible
-- evidenced
-- linked to pain points and behaviours
-- connected to decisions
-- open to challenge
-- reusable across related service work
+A civic knowledge system should help make these omissions visible without pretending every tension can be resolved technically.
 
-The goal is not to freeze user needs forever. The goal is to stop them disappearing without anyone noticing.
+It should help preserve links between:
+
+- evidence
+- user needs
+- civic needs
+- pain points
+- behaviours
+- context
+- outcomes
+- value blockers
+- review state
+
+The goal is not to freeze user needs forever. The goal is to stop important needs disappearing without anyone noticing.
 
 ## To develop later
 
 - distinguish user needs erasure from user needs drift
 - connect to civic needs and institutional needs
-- add examples from public-service work
+- add stronger examples from public-service work
 - identify common erasure mechanisms
 - define how a knowledge system can detect or prevent erasure
