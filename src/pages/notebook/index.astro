@@ -41,8 +41,23 @@ const standardEntries = entries.filter((entry) =>
       </div>
     </section>
 
+    <section aria-labelledby="notebook-entries-heading" style="margin-bottom: var(--space-7);">
+      <div class="prose">
+        <h2 id="notebook-entries-heading">Entries</h2>
+      </div>
+      <div class="card-grid">
+        {standardEntries.map((entry) => (
+          <article class="card">
+            <p class="meta">{entry.data.status}</p>
+            <h3><a href={href(`notebook/${entry.id}/`)}>{entry.data.title}</a></h3>
+            <p>{entry.data.description}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
     {longformEntries.length > 0 && (
-      <section aria-labelledby="notebook-longform-heading" style="margin-bottom: var(--space-7);">
+      <section aria-labelledby="notebook-longform-heading">
         <div class="prose">
           <h2 id="notebook-longform-heading">Longform essays</h2>
           <p>Longer developed pieces, talks and expanded arguments.</p>
@@ -58,20 +73,5 @@ const standardEntries = entries.filter((entry) =>
         </div>
       </section>
     )}
-
-    <section aria-labelledby="notebook-entries-heading">
-      <div class="prose">
-        <h2 id="notebook-entries-heading">Entries</h2>
-      </div>
-      <div class="card-grid">
-        {standardEntries.map((entry) => (
-          <article class="card">
-            <p class="meta">{entry.data.status}</p>
-            <h3><a href={href(`notebook/${entry.id}/`)}>{entry.data.title}</a></h3>
-            <p>{entry.data.description}</p>
-          </article>
-        ))}
-      </div>
-    </section>
   </section>
 </BaseLayout>
