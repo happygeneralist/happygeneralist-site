@@ -1,0 +1,29 @@
+.lab-hero {
+  display: grid;
+  gap: var(--space-6);
+  align-items: start;
+  margin-bottom: var(--space-7);
+}
+
+.lab-hero__content {
+  max-width: var(--measure);
+}
+
+.lab-hero__content h1 {
+  margin: var(--space-2) 0 var(--space-4);
+  font-size: clamp(2.75rem, 7vw, 5.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.055em;
+}
+
+.lab-hero__content > p:not(.meta) {
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  line-height: 1.4;
+  color: var(--colour-text);
+}
+
+@media (min-width: 1000px) {
+  .lab-hero--with-image {
+    grid-template-columns: minmax(0, 0.9fr) minmax(22rem, 0.75fr);
+  }
+}
