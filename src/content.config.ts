@@ -36,7 +36,18 @@ const contentLoader = (section: string) =>
 const notebook = defineCollection({
   loader: contentLoader('notebook'),
   schema: baseSchema.extend({
-    entry_type: z.enum(['note', 'short-entry', 'essay', 'observation', 'question', 'pattern', 'fragment']).default('note')
+    entry_type: z.enum(['note', 'short-entry', 'essay', 'longform', 'observation', 'question', 'pattern', 'fragment']).default('note'),
+    layout_variant: z.enum(['standard', 'longform']).default('standard'),
+    origin_note: z.string().optional(),
+    sections: z.array(z.object({
+      label: z.string(),
+      href: z.string()
+    })).default([]),
+    extracts: z.array(z.object({
+      title: z.string(),
+      href: z.string(),
+      description: z.string().optional()
+    })).default([])
   })
 })
 
