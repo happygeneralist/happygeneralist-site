@@ -1,6 +1,6 @@
 ---
 title: User needs drift
-description: A placeholder note for the pattern where validated user needs gradually become misaligned from the artefacts, decisions and delivery work supposedly based on them.
+description: A working definition for the pattern where user needs become misaligned from the evidence, context or outcomes that made them meaningful.
 date: 2026-07-05
 status: rough
 maturity: seed
@@ -11,28 +11,50 @@ themes:
   - public service
 tags:
   - user needs drift
+  - needs drift
   - user needs
-  - delivery drift
+  - solution vector sensitivity
   - civic needs
-  - evidence
-entry_type: note
+entry_type: definition
+origin_repo: happygeneralist/happygeneralist
+origin_path: 02_Projects/Civic_Design_Intelligence/Outcomes_need_learning_and_delivery_reality.md
+source_visibility: public
+source_note: Working definition developed as part of the theoretical layer around Civic Design Intelligence. This is an authored Happygeneralist term, not a settled external standard.
 related:
   - user-needs-erasure
   - user-needs-patterns
   - civic-design-intelligence
 ---
 
-## Stub
-
-User needs drift is the pattern where a need starts with a useful relationship to evidence and lived experience, but gradually becomes misaligned as it moves through delivery.
-
-The need may still exist in the language of the project, but its meaning changes. It becomes narrower, more convenient, more solution-shaped, more content-shaped, or more aligned to institutional delivery than to the person or community it was meant to represent.
-
 ## Working definition
 
-User needs drift happens when the artefacts and decisions produced from a user need no longer reflect the evidence, situation or outcome that originally made the need meaningful.
+User needs drift happens when a need starts with a useful relationship to evidence, context and lived experience, but gradually becomes misaligned as it moves through research, policy, delivery, content, governance or measurement.
 
-Unlike erasure, the need has not necessarily disappeared. It may still be visible, quoted or referenced. The problem is that it has become detached from its original function.
+The need may still be visible. It may still be quoted, tagged or referenced. The problem is that its meaning has moved away from the evidence, situation or outcome that originally made it useful.
+
+## Status of this term
+
+This is a Happygeneralist working definition.
+
+It is part of the theoretical underpinning of Civic Design Intelligence and should not be presented as a settled term of art from the wider design field.
+
+The point of naming it is to make a subtle failure visible: a project can still say it is working from user needs while quietly moving away from what those needs meant.
+
+## Why drift matters
+
+Small changes in user need wording can change the solution vector.
+
+These are not equivalent:
+
+| Need wording | Likely solution vector |
+|---|---|
+| Need to know options | Information provision, webpage, list, directory |
+| Need to compare options | Comparison tools, criteria, filters, decision aids |
+| Need to judge which options are realistic | Interpretation, advice, brokerage, contextual suitability |
+| Need to decide which route to take | Decision support, confidence, consequences, timing, support network |
+| Need to protect future options | Strategic planning, fallback routes, rights, sequencing, risk mitigation |
+
+If a project treats one of these needs as if it were another, it can deliver activity without delivering public value.
 
 ## How it shows up
 
@@ -43,12 +65,7 @@ Unlike erasure, the need has not necessarily disappeared. It may still be visibl
 - delivery teams use the same need to justify conflicting choices
 - prioritisation focuses on what is buildable rather than what is needed
 - the wording survives but the relationship to evidence weakens
-
-## Why it matters
-
-Drift is dangerous because it can look like continuity.
-
-The project can still say it is working from user needs while quietly moving away from what those needs meant. By the time the misalignment becomes visible, the service may already have produced artefacts, commitments or metrics that are difficult to unwind.
+- an outcome remains fixed even after need learning changes the problem frame
 
 ## Relationship to Civic Design Intelligence
 
@@ -60,6 +77,7 @@ Civic Design Intelligence should help detect drift by keeping stronger links bet
 - needs and civic outcomes
 - needs and decisions
 - needs and the artefacts built from them
+- needs and review state
 
 A need should be able to carry a history: where it came from, what evidence supports it, what it has influenced, and whether it has been superseded.
 
