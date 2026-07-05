@@ -1,0 +1,92 @@
+---
+import { getCollection } from 'astro:content'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+
+const base = import.meta.env.BASE_URL
+const href = (path: string) => `${base}${path}`.replace(/\/\/+/g, '/')
+
+const userNeedsEntries = await getCollection('notebook', ({ data }) =>
+  data.tags.includes('user needs') ||
+  data.tags.includes('user needs drift') ||
+  data.tags.includes('user needs erasure') ||
+  data.tags.includes('user needs collapse') ||
+  data.themes.includes('user needs')
+)
+
+userNeedsEntries.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+---
+
+<BaseLayout title="User needs patterns" description="A notebook path for working definitions, failure modes and governance questions around user needs, civic needs and evidence-to-decision traceability.">
+  <article class="page">
+    <header class="page-header prose">
+      <p class="meta">Notebook path</p>
+      <h1>User needs patterns</h1>
+      <p>A path for working definitions, failure modes and governance questions around user needs, civic needs and evidence-to-decision traceability.</p>
+    </header>
+
+    <div class="prose">
+      <h2>What this path is for</h2>
+      <p>This is a holding area for a larger cluster of thinking about user needs: how they are discovered, written, governed, distorted, erased, superseded and connected to civic outcomes.</p>
+      <p>These are Happygeneralist working definitions. They are part of the theoretical underpinning of Civic Design Intelligence, not settled external standards or widely established design terminology.</p>
+
+      <h2>Why this category is necessary</h2>
+      <p>User needs are often treated as small delivery artefacts: statements for backlogs, content pages, service assessments or product decisions.</p>
+      <p>That is useful, but too narrow. In public-service work, user needs sit inside a larger ecology of evidence, civic obligations, institutional constraints, policy choices, lived experience and operational realities.</p>
+      <p>If that ecology is not made visible, user needs can become decorative: present in language, weak in power.</p>
+
+      <h2>Core distinction</h2>
+      <p><strong>A user need</strong> names what a person must be able to accomplish, understand, decide, access, maintain or resolve.</p>
+      <p><strong>A civic need</strong> names what the system or institution must make possible, protect or repair.</p>
+      <p>A central problem in this cluster is that these concepts are often collapsed into tasks, features, content, policy aims, outcomes or organisational priorities.</p>
+
+      <h2>Early pattern map</h2>
+      <h3>User needs erasure</h3>
+      <p>A need is ignored, minimised, reframed, individualised or made illegible inside a policy, project, strategy, speech or service design.</p>
+
+      <h3>User needs drift</h3>
+      <p>A need remains visible, but its meaning moves away from the evidence, context or outcome that originally made it useful.</p>
+
+      <h3>User needs collapse</h3>
+      <p>The distinction between user needs and other concepts breaks down. A need becomes treated as a task, feature, content requirement, user story, service output, policy aim or organisational priority.</p>
+
+      <h3>Civic needs erasure</h3>
+      <p>Civic obligations, justice floors, public value or structural duties are pushed out of view when needs are framed only as individual tasks or transactional service moments.</p>
+
+      <h3>Needs as traceable objects</h3>
+      <p>A more positive pattern: user needs and civic needs are treated as persistent, traceable, supersedable knowledge objects.</p>
+
+      <h2>Relationship to Civic Design Intelligence</h2>
+      <p>Civic Design Intelligence is connected to this cluster because it is trying to solve a practical version of the same problem.</p>
+      <p>If needs only live in reports, workshops or backlogs, they are easy to lose. If they become structured knowledge objects, they can be inspected, connected and challenged.</p>
+    </div>
+
+    <section aria-labelledby="user-needs-entries-heading" style="margin-top: var(--space-7);">
+      <div class="prose">
+        <h2 id="user-needs-entries-heading">User needs entries</h2>
+        <p>These cards are generated from Notebook entries tagged or themed around user needs.</p>
+      </div>
+      <div class="card-grid">
+        {userNeedsEntries.map((entry) => (
+          <article class="card">
+            <p class="meta">{entry.data.entry_type} - {entry.data.status} - {entry.data.date.toLocaleDateString('en-GB', { dateStyle: 'long' })}</p>
+            <h3><a href={href(`notebook/${entry.id}/`)}>{entry.data.title}</a></h3>
+            <p>{entry.data.description}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="prose" aria-labelledby="to-develop-heading" style="margin-top: var(--space-7);">
+      <h2 id="to-develop-heading">To develop later</h2>
+      <ul>
+        <li>Short standalone entries for each pattern.</li>
+        <li>Examples from public-service work.</li>
+        <li>A clearer distinction between user needs, civic needs and organisational needs.</li>
+        <li>Evidence patterns that indicate drift, erasure or collapse.</li>
+        <li>A taxonomy of needs failure modes.</li>
+        <li>Links to Civic Design Intelligence object types.</li>
+        <li>Guidance for writing needs that survive translation into decisions.</li>
+      </ul>
+    </section>
+  </article>
+</BaseLayout>
