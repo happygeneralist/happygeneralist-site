@@ -125,21 +125,6 @@ const primaryDownload = downloads[0]
       <div class="tool-body__main prose">
         <slot />
       </div>
-
-      {downloads.length > 0 && (
-        <aside class="tool-download-panel" aria-label="Download this tool">
-          <h2>Start using it</h2>
-          <p>Download the canvas and use it as a shared framing artefact with your team.</p>
-          <ul class="download-list">
-            {downloads.map((download) => (
-              <li>
-                <a class="button" href={resolveAsset(download.href)}>{download.label}</a>
-                {download.type && <span>{download.type}</span>}
-              </li>
-            ))}
-          </ul>
-        </aside>
-      )}
     </div>
   </article>
 </BaseLayout>
