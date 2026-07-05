@@ -1,6 +1,6 @@
 ---
 title: Civic design intelligence
-description: A placeholder Lab for the public-service design intelligence system and its connected knowledge infrastructure.
+description: An open knowledge infrastructure experiment for making public-service needs, evidence, pain, outcomes and decisions easier to trace.
 date: 2026-07-04
 status: emerging
 maturity: draft
@@ -8,10 +8,13 @@ themes:
   - civic design
   - public service
   - knowledge systems
+  - AI-assisted design
 tags:
   - civic design intelligence
   - SEND
   - evidence
+  - public service needs
+  - decision intelligence
 lab_type: system
 layout: magazine
 project_status: active
@@ -19,9 +22,102 @@ source_repos:
   - civic-design-intelligence
 outputs:
   - public knowledge system
+  - generated repository snapshot
   - design intelligence model
+  - evidence and decision traceability pattern
 ---
 
-Civic design intelligence is a Lab for exploring how public-service needs, evidence, pain points, behaviours, insights and decisions can become more visible, reusable and contestable.
+Civic design intelligence is an experiment in turning fragmented public-service knowledge into something more visible, traceable and usable.
 
-This placeholder proves the Lab layout path works.
+The current worked example uses SEND pathway planning as a starting domain, but the model is intended to be reusable across public services. The aim is not to build another document repository. It is to test whether evidence, user needs, civic needs, pain points, behaviours, insights, outcomes and decisions can be held as structured knowledge objects that are easier to inspect, reuse and challenge.
+
+[View the current public snapshot](https://happygeneralist.github.io/civic-design-intelligence/)
+
+## What the current site shows
+
+The public snapshot is generated from the Civic Design Intelligence repository. It presents the system as a lightweight public overview rather than a finished validation statement.
+
+It currently shows:
+
+- a strategic explanation of the system
+- repository counts generated from folders and object metadata
+- object maturity signals
+- how AI can support structured civic knowledge work
+- the basic operating layers of the system
+
+The snapshot matters because it makes the repository legible. Instead of asking someone to understand the system by reading folders and Markdown files, it turns the repository into a public-facing summary of what is known, what is missing and what still needs validation.
+
+## Why this is a Lab
+
+This is not only a website. It is a test of a different way to organise civic design work.
+
+Public services often hold important knowledge across research reports, workshops, complaints, policy documents, operational spreadsheets, service histories and professional judgement. That knowledge is usually hard to reuse because it is buried in documents, tied to specific projects or rewritten for each new decision.
+
+Civic design intelligence asks whether that material can be shaped into persistent, linkable knowledge objects without pretending that messy human evidence is more certain than it is.
+
+## What the system is trying to make visible
+
+The model is intended to help teams see:
+
+- what evidence exists
+- which needs are supported or unsupported
+- where pain points block public value
+- how decisions relate back to evidence
+- where outcomes are claimed without enough grounding
+- where operational knowledge challenges the stated service story
+
+This is especially important in public-service areas where responsibility is distributed, lived experience is fragmented and decisions can drift away from what people actually need.
+
+## Why AI is involved
+
+AI makes this practical at a scale that would be difficult manually. It can help structure, connect and query large amounts of research, policy, service and operational material.
+
+But the system is deliberately not framed as automated decision-making. AI supports structure and connection. People remain responsible for interpretation, validation and decisions.
+
+The design principle is: make evidence, uncertainty and reasoning more visible, not less.
+
+## Current MVP status
+
+The current system is an MVP. It is limited to a small number of service areas and uses SEND pathway planning as a worked example.
+
+At this stage, the public snapshot should be read as:
+
+- a demonstration of the operating model
+- a lightweight view over repository contents
+- a way to expose gaps and maturity
+- a test of repository-generated public documentation
+
+It should not yet be read as:
+
+- a validated public-service evidence base
+- a complete SEND knowledge model
+- an official service assessment
+- an automated decision-support product
+
+## What is interesting about it
+
+The important move is not the visual dashboard. The important move is the repository pattern underneath it.
+
+If public-service evidence, needs, pain points, outcomes and decisions can be stored as traceable objects, then design work becomes less disposable. Teams can build on what has already been learned instead of repeatedly restarting discovery, recreating journey maps or losing the logic behind previous decisions.
+
+That opens the possibility of better continuity between:
+
+- research and strategy
+- lived experience and operational planning
+- service design and policy
+- local evidence and reusable public-service patterns
+- human judgement and AI-assisted analysis
+
+## Next questions
+
+The Lab is now about testing the operating layer before ingesting much more material.
+
+The live questions are:
+
+- What needs to be structured before large-scale ingestion starts?
+- Which parts of the model should remain open and reusable?
+- Which LLM instructions, ingestion patterns or orchestration components should be protected?
+- How should public evidence, private orchestration and reusable method IP be separated?
+- What is the minimum documentation needed to prevent drift as the knowledge base grows?
+
+Those questions matter because the value of the system depends on trust. The repository needs to stay open enough to be useful, but governed enough that knowledge objects, evidence links and decision histories do not become another pile of disconnected content.
