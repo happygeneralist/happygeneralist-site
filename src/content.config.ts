@@ -75,6 +75,7 @@ const labs = defineCollection({
     lab_type: z.enum(['case-study', 'prototype', 'experiment', 'system', 'visual-essay']).default('experiment'),
     layout: z.enum(['standard', 'magazine', 'canvas', 'interactive']).default('standard'),
     project_status: z.enum(['concept', 'active', 'paused', 'complete', 'archived']).default('concept'),
+    preview_image: imageAssetSchema.optional(),
     source_repos: z.array(z.string()).default([]),
     outputs: z.array(z.string()).default([])
   })
