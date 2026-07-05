@@ -1,5 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro'
+import ResponsiveImage from '../components/ResponsiveImage.astro'
 
 interface SectionLink {
   label: string
@@ -12,6 +13,12 @@ interface ExtractLink {
   description?: string
 }
 
+interface ImageAsset {
+  src: string
+  alt: string
+  caption?: string
+}
+
 interface Props {
   title: string
   description: string
@@ -19,6 +26,7 @@ interface Props {
   status?: string
   themes?: string[]
   originNote?: string
+  heroImage?: ImageAsset
   sections?: SectionLink[]
   extracts?: ExtractLink[]
 }
@@ -30,6 +38,7 @@ const {
   status,
   themes = [],
   originNote,
+  heroImage,
   sections = [],
   extracts = []
 } = Astro.props
@@ -37,6 +46,17 @@ const {
 
 <BaseLayout title={title} description={description}>
   <article class="longform-page">
+    {heroImage && (
+      <ResponsiveImage
+        src={heroImage.src}
+        alt={heroImage.alt}
+        caption={heroImage.caption}
+        variant="longform-hero"
+        loading="eager"
+        sizes="(min-width: 1440px) 1440px, calc(100vw - 2rem)"
+      />
+    )}
+
     <header class="longform-hero">
       <p class="meta">{status ? status : 'draft'}{date ? ` - ${date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}` : ''}</p>
       <h1>{title}</h1>
