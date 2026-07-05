@@ -19,7 +19,7 @@ lab_type: system
 layout: magazine
 project_status: active
 preview_image:
-  src: labs/civic-design-intelligence/civic-design-intelligence-snapshot.webp
+  src: labs/civic-design-intelligence-snapshot.webp
   alt: Screenshot of the Civic Design Intelligence generated public snapshot showing a yellow hero panel, repository snapshot metrics and sections explaining the system.
   caption: The generated public snapshot turns the repository into a lightweight overview of known objects, gaps and maturity.
 source_repos:
