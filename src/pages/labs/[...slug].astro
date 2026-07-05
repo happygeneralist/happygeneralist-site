@@ -14,7 +14,13 @@ const useLabLayout = entry.data.layout !== 'standard'
 ---
 
 {useLabLayout ? (
-  <LabLayout title={entry.data.title} description={entry.data.description} status={entry.data.project_status} themes={entry.data.themes}>
+  <LabLayout
+    title={entry.data.title}
+    description={entry.data.description}
+    status={entry.data.project_status}
+    themes={entry.data.themes}
+    previewImage={entry.data.preview_image}
+  >
     <section class="card lab-panel lab-panel--wide prose">
       <Content />
     </section>
