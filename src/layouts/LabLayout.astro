@@ -1,26 +1,45 @@
 ---
 import BaseLayout from './BaseLayout.astro'
+import ResponsiveImage from '../components/ResponsiveImage.astro'
+
+interface ImageAsset {
+  src: string
+  alt: string
+  caption?: string
+}
 
 interface Props {
   title: string
   description: string
   status?: string
   themes?: string[]
+  previewImage?: ImageAsset
 }
 
-const { title, description, status = 'concept', themes = [] } = Astro.props
+const { title, description, status = 'concept', themes = [], previewImage } = Astro.props
 ---
 
 <BaseLayout title={title} description={description}>
   <article class="lab-shell">
-    <header class="page-header prose">
-      <p class="meta">Lab - {status}</p>
-      <h1>{title}</h1>
-      <p>{description}</p>
-      {themes.length > 0 && (
-        <ul class="tag-list" aria-label="Themes">
-          {themes.map((theme) => <li class="tag">{theme}</li>)}
-        </ul>
+    <header class={previewImage ? 'lab-hero lab-hero--with-image' : 'page-header prose'}>
+      <div class="lab-hero__content">
+        <p class="meta">Lab - {status}</p>
+        <h1>{title}</h1>
+        <p>{description}</p>
+        {themes.length > 0 && (
+          <ul class="tag-list" aria-label="Themes">
+            {themes.map((theme) => <li class="tag">{theme}</li>)}
+          </ul>
+        )}
+      </div>
+      {previewImage && (
+        <ResponsiveImage
+          src={previewImage.src}
+          alt={previewImage.alt}
+          caption={previewImage.caption}
+          variant="lab-preview"
+          sizes="(min-width: 1000px) 42vw, calc(100vw - 2rem)"
+        />
       )}
     </header>
     <div class="lab-grid">
