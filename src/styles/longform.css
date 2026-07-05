@@ -1,0 +1,147 @@
+.longform-page {
+  width: min(100% - 2rem, var(--lab-page-width));
+  margin-inline: auto;
+  padding-block: var(--space-7);
+}
+
+.longform-hero {
+  max-width: 58rem;
+  margin-bottom: var(--space-7);
+}
+
+.longform-hero h1 {
+  max-width: 11ch;
+  margin: var(--space-2) 0 var(--space-5);
+  font-size: clamp(3rem, 10vw, 7.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.06em;
+}
+
+.longform-hero__lede {
+  max-width: 48rem;
+  font-size: clamp(1.25rem, 2.4vw, 1.8rem);
+  line-height: 1.35;
+  color: var(--colour-text);
+}
+
+.longform-origin {
+  max-width: var(--measure);
+  color: var(--colour-muted);
+}
+
+.longform-shell {
+  display: grid;
+  gap: var(--space-7);
+  align-items: start;
+}
+
+.longform-spine {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.longform-spine__section {
+  padding: var(--space-5);
+  border-radius: var(--radius-m);
+  background: var(--colour-surface);
+  box-shadow: var(--surface-outline), var(--elevation-1);
+}
+
+.longform-spine__section h2 {
+  margin: 0 0 var(--space-3);
+  font-size: 1rem;
+}
+
+.longform-spine__section ol,
+.longform-spine__section ul {
+  display: grid;
+  gap: var(--space-3);
+  padding-left: 1.2rem;
+  margin: 0;
+}
+
+.longform-spine__section p {
+  margin: var(--space-1) 0 0;
+  color: var(--colour-muted);
+  font-size: 0.92rem;
+}
+
+.longform-content {
+  max-width: var(--measure);
+}
+
+.longform-content > h2 {
+  margin-top: var(--space-8);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--colour-border);
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.longform-content > h2:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+
+.longform-content > h3 {
+  margin-top: var(--space-7);
+  font-size: clamp(1.35rem, 3vw, 2rem);
+}
+
+.longform-content > h4 {
+  margin-top: var(--space-6);
+  font-size: 1.1rem;
+}
+
+.longform-content blockquote {
+  margin: var(--space-6) 0;
+  padding: var(--space-5);
+  border-left: 4px solid var(--colour-text);
+  border-radius: 0 var(--radius-m) var(--radius-m) 0;
+  background: var(--colour-surface-quiet);
+  box-shadow: var(--elevation-1);
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+
+.longform-content blockquote p:first-child {
+  margin-top: 0;
+}
+
+.longform-content blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+.longform-content table {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+}
+
+.longform-content th,
+.longform-content td {
+  padding: var(--space-2);
+  border-bottom: 1px solid var(--colour-border);
+  text-align: left;
+  vertical-align: top;
+}
+
+@media (min-width: 1100px) {
+  .longform-shell {
+    grid-template-columns: minmax(14rem, 0.38fr) minmax(0, var(--measure)) minmax(8rem, 0.22fr);
+  }
+
+  .longform-spine {
+    position: sticky;
+    top: var(--space-5);
+    grid-column: 1;
+  }
+
+  .longform-content {
+    grid-column: 2;
+  }
+}
