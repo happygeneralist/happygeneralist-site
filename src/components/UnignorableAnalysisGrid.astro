@@ -32,6 +32,21 @@ const filterLabels = ['All', ...categories, ...lenses.slice(0, 4)]
         {analysis.lenses.slice(0, 4).map((lens) => <li class="tag">{lens}</li>)}
       </ul>
       <p class="analysis-card__links"><a href={analysis.pdf}>Download PDF</a> · <a href={analysis.metadata}>Metadata</a></p>
+      {analysis.relatedArtefacts && analysis.relatedArtefacts.length > 0 && (
+        <div class="analysis-related">
+          <h4>Related addenda</h4>
+          <ul>
+            {analysis.relatedArtefacts.map((item) => (
+              <li>
+                <span class="meta">{item.type} · {item.reviewLevel}</span>
+                <strong>{item.title}</strong>
+                <p>{item.summary}</p>
+                <p class="analysis-card__links"><a href={item.pdf}>Download PDF</a> · <a href={item.metadata}>Metadata</a></p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </article>
   ))}
 </div>
