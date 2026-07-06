@@ -2,6 +2,7 @@
 title: Unignorable analysis archive
 description: A catalogue of downloadable Unignorable analyses applying the framework to public topics, reports, speeches, policies and institutional narratives.
 date: 2026-07-05
+updated: 2026-07-06
 status: emerging
 maturity: seed
 themes:
@@ -34,6 +35,18 @@ These analyses are interpretive, not neutral reporting. Some are LLM-assisted an
 The purpose is to test whether hidden needs, displaced burdens, legitimacy gaps and patterns of institutional erasure can be made easier to see.
 
 ## 2026
+
+### A child-safety ban that risks hiding children rather than making platforms safe
+
+An Unignorable analysis of child online safety and social media age-restriction proposals.
+
+The analysis argues that a ban may be useful as a temporary guardrail, but risks becoming symbolic if it hides children from mainstream platforms without forcing safer design, tracking displacement or protecting privacy, support, learning and agency.
+
+- PDF: [Download the analysis](/downloads/unignorable/2026/2026-07-06-child-safety-ban-hiding-children.pdf)
+- Metadata: [View the sidecar record](/downloads/unignorable/2026/2026-07-06-child-safety-ban-hiding-children.md)
+- Source context: UK government child online safety and social media age-restriction proposals, with references to GOV.UK, Ofcom, Australia’s eSafety Commissioner, Amnesty International UK, 5Rights, NSPCC and the Molly Rose Foundation-hosted joint statement
+- Review level: light review
+- Lenses: needs erasure, displacement risk, false efficiency, moral compression, platform accountability, privacy and identity infrastructure
 
 ### School absence is framed as a delivery problem, but it is really a needs crisis
 
