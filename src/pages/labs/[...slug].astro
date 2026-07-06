@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content'
 import ContentLayout from '../../layouts/ContentLayout.astro'
 import LabLayout from '../../layouts/LabLayout.astro'
+import UnignorableAnalysisGrid from '../../components/UnignorableAnalysisGrid.astro'
 
 export async function getStaticPaths() {
   const entries = await getCollection('labs')
@@ -22,6 +23,15 @@ const useLabLayout = entry.data.layout !== 'standard'
     previewImage={entry.data.preview_image}
   >
     <Content />
+    {entry.id === 'unignorable' && (
+      <section class="lab-panel lab-panel--wide">
+        <h2>Analysis archive</h2>
+        <p>Some applications of the framework are published as downloadable analysis artefacts rather than ordinary site content.</p>
+        <p>The archive holds short catalogue notes and links to PDFs. The PDFs preserve each analysis as a standalone artefact, with sidecar metadata for future indexing.</p>
+        <UnignorableAnalysisGrid />
+        <p><a href="/notebook/unignorable-analysis-archive/">View the full Unignorable analysis archive</a></p>
+      </section>
+    )}
   </LabLayout>
 ) : (
   <ContentLayout
