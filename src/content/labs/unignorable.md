@@ -19,7 +19,7 @@ tags:
   - burden shifting
   - institutional design
 lab_type: experiment
-layout: standard
+layout: canvas
 project_status: active
 outputs:
   - working framework
@@ -30,7 +30,7 @@ outputs:
   - analysis archive
 ---
 
-<section class="lab-panel lab-panel--wide lab-panel--intro">
+<section class="lab-panel lab-panel--span-8 lab-panel--intro">
 
 Unignorable is a working framework for identifying where institutions make real human needs easier to ignore.
 
@@ -40,7 +40,19 @@ It starts from a simple but uncomfortable observation: many service and policy f
 
 </section>
 
-<section class="lab-panel">
+<section class="lab-panel lab-panel--span-4">
+
+## One expression: a custom LLM
+
+One current expression of the framework is a custom LLM called Unignorable.
+
+The LLM is not the whole framework. It is a way to test whether the diagnostic lens can help analyse policy, language, services and institutional behaviour in a more structured way.
+
+That matters because the wider framework is not only a set of concepts. It is also an attempt to build usable diagnostic practice: something that can surface hidden needs, hidden costs, burden transfer, false neutrality, paternalism and other patterns of erasure.
+
+</section>
+
+<section class="lab-panel lab-panel--span-6">
 
 ## What it is trying to do
 
@@ -58,7 +70,7 @@ Rather than asking only whether a service is efficient or compliant, it asks:
 
 </section>
 
-<section class="lab-panel">
+<section class="lab-panel lab-panel--span-6">
 
 ## Working areas of the framework
 
@@ -72,19 +84,7 @@ The framework is still developing, but current strands include:
 
 </section>
 
-<section class="lab-panel">
-
-## One expression: a custom LLM
-
-One current expression of the framework is a custom LLM called Unignorable.
-
-The LLM is not the whole framework. It is a way to test whether the diagnostic lens can help analyse policy, language, services and institutional behaviour in a more structured way.
-
-That matters because the wider framework is not only a set of concepts. It is also an attempt to build usable diagnostic practice: something that can surface hidden needs, hidden costs, burden transfer, false neutrality, paternalism and other patterns of erasure.
-
-</section>
-
-<section class="lab-panel">
+<section class="lab-panel lab-panel--span-4">
 
 ## Why it sits in Labs
 
@@ -94,7 +94,7 @@ It is not yet a fixed method or finished public framework. It is a live attempt 
 
 </section>
 
-<section class="lab-panel lab-panel--wide">
+<section class="lab-panel lab-panel--span-8">
 
 ## Analysis archive
 
@@ -129,7 +129,7 @@ The archive holds short catalogue notes and links to PDFs. The PDFs preserve eac
 
 </section>
 
-<section class="lab-panel lab-panel--wide">
+<section class="lab-panel lab-panel--span-5">
 
 ## Why it matters
 
@@ -141,7 +141,7 @@ Unignorable is an attempt to make those patterns more visible, discussable and c
 
 </section>
 
-<section class="lab-panel lab-panel--wide">
+<section class="lab-panel lab-panel--span-7">
 
 ## Next questions
 
