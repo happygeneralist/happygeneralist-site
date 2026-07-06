@@ -22,6 +22,87 @@
   color: var(--colour-text);
 }
 
+.lab-panel {
+  padding: var(--space-5);
+  border-radius: var(--radius-m);
+  background: var(--colour-surface);
+  box-shadow: var(--surface-outline), var(--elevation-1);
+}
+
+.lab-panel > :first-child {
+  margin-top: 0;
+}
+
+.lab-panel > :last-child {
+  margin-bottom: 0;
+}
+
+.lab-panel h2,
+.lab-panel h3 {
+  margin-top: 0;
+}
+
+.lab-panel--intro {
+  max-width: none;
+  padding: clamp(var(--space-5), 4vw, var(--space-7));
+  background: var(--colour-surface-quiet);
+  box-shadow: var(--surface-outline), var(--elevation-2);
+}
+
+.lab-panel--intro p {
+  max-width: 74ch;
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  line-height: 1.45;
+}
+
+.analysis-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: var(--space-5) 0;
+}
+
+.analysis-filter {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  background: var(--colour-surface-quiet);
+  color: var(--colour-muted);
+  box-shadow: var(--surface-outline);
+  font-size: 0.95rem;
+}
+
+.analysis-filter--active {
+  color: var(--colour-text);
+  font-weight: 700;
+}
+
+.analysis-card-grid {
+  display: grid;
+  gap: var(--space-5);
+  margin: var(--space-5) 0;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+}
+
+.analysis-card {
+  padding: var(--space-5);
+  border-radius: var(--radius-m);
+  background: var(--colour-surface);
+  box-shadow: var(--surface-outline), var(--elevation-1);
+}
+
+.analysis-card h3 {
+  margin-top: 0;
+  font-size: clamp(1.35rem, 3vw, 1.9rem);
+  line-height: 1.15;
+}
+
+.analysis-card__links {
+  margin-top: var(--space-5);
+  font-weight: 700;
+}
+
 @media (min-width: 1000px) {
   .lab-hero--with-image {
     grid-template-columns: minmax(0, 0.9fr) minmax(22rem, 0.75fr);
