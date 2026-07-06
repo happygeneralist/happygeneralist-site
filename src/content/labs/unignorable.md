@@ -94,7 +94,31 @@ It is not yet a fixed method or finished public framework. It is a live attempt 
 
 </section>
 
-<section class="lab-panel lab-panel--span-8">
+<section class="lab-panel lab-panel--span-5">
+
+## Why it matters
+
+A great deal of contemporary institutional failure is hard to name clearly.
+
+People are often told they are facing complexity, constraints or unfortunate trade-offs, when what they are actually facing is a structured pattern of erasure, burden transfer or control-centric design.
+
+Unignorable is an attempt to make those patterns more visible, discussable and challengeable.
+
+</section>
+
+<section class="lab-panel lab-panel--span-7">
+
+## Next questions
+
+- What should count as a non-negotiable civic need?
+- How can erasure be identified early rather than only after harm is visible?
+- What would it mean to make needs more structurally binding in policy and service design?
+- How can a framework like this stay morally clear without becoming rigid or reductive?
+- Which parts of the framework should become public tools, and which should remain working theory for now?
+
+</section>
+
+<section class="lab-panel lab-panel--wide">
 
 ## Analysis archive
 
@@ -126,29 +150,5 @@ The archive holds short catalogue notes and links to PDFs. The PDFs preserve eac
 </div>
 
 <p><a href="/notebook/unignorable-analysis-archive/">View the full Unignorable analysis archive</a></p>
-
-</section>
-
-<section class="lab-panel lab-panel--span-5">
-
-## Why it matters
-
-A great deal of contemporary institutional failure is hard to name clearly.
-
-People are often told they are facing complexity, constraints or unfortunate trade-offs, when what they are actually facing is a structured pattern of erasure, burden transfer or control-centric design.
-
-Unignorable is an attempt to make those patterns more visible, discussable and challengeable.
-
-</section>
-
-<section class="lab-panel lab-panel--span-7">
-
-## Next questions
-
-- What should count as a non-negotiable civic need?
-- How can erasure be identified early rather than only after harm is visible?
-- What would it mean to make needs more structurally binding in policy and service design?
-- How can a framework like this stay morally clear without becoming rigid or reductive?
-- Which parts of the framework should become public tools, and which should remain working theory for now?
 
 </section>
