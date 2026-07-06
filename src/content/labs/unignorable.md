@@ -2,6 +2,7 @@
 title: Unignorable
 description: A working framework for making hidden institutional erasure visible — and for asking what repair would require.
 date: 2026-07-05
+updated: 2026-07-06
 status: emerging
 maturity: seed
 themes:
@@ -129,12 +130,26 @@ The archive holds short catalogue notes and links to PDFs. The PDFs preserve eac
 <div class="analysis-filter-bar" aria-label="Analysis filters">
   <span class="analysis-filter analysis-filter--active">All</span>
   <span class="analysis-filter">Education</span>
+  <span class="analysis-filter">Online safety</span>
   <span class="analysis-filter">Public services</span>
   <span class="analysis-filter">Needs erasure</span>
   <span class="analysis-filter">Burden transfer</span>
 </div>
 
 <div class="analysis-card-grid">
+  <article class="analysis-card">
+    <p class="meta">Light review · Online safety · 2026</p>
+    <h3>A child-safety ban that risks hiding children rather than making platforms safe</h3>
+    <p>An Unignorable analysis of child online safety and social media age-restriction proposals, arguing that a ban may act as a temporary guardrail but risks substituting access restriction for safer platform design.</p>
+    <ul class="tag-list" aria-label="Analysis lenses">
+      <li class="tag">needs erasure</li>
+      <li class="tag">displacement risk</li>
+      <li class="tag">false efficiency</li>
+      <li class="tag">privacy</li>
+    </ul>
+    <p class="analysis-card__links"><a href="/downloads/unignorable/2026/2026-07-06-child-safety-ban-hiding-children.pdf">Download PDF</a> · <a href="/downloads/unignorable/2026/2026-07-06-child-safety-ban-hiding-children.md">Metadata</a></p>
+  </article>
+
   <article class="analysis-card">
     <p class="meta">Light review · Education · 2026</p>
     <h3>School absence is framed as a delivery problem, but it is really a needs crisis</h3>
