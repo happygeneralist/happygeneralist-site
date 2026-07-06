@@ -60,12 +60,15 @@ for (const path of sourceFiles) {
     fail(`${path} contains stale /happygeneralist-site/ project-base path`)
   }
 
-  const downloadLinks = [...content.matchAll(/href=["'](\/downloads\/[^"']+)["']/g)].map((match) => match[1])
+  const downloadLinks = [
+    ...content.matchAll(/href=["'](\/downloads\/[^"']+)["']/g),
+    ...content.matchAll(/["'](\/downloads\/[^"']+)["']/g)
+  ].map((match) => match[1])
 
-  for (const href of downloadLinks) {
+  for (const href of new Set(downloadLinks)) {
     const publicPath = `public${href}`
     if (!existsSync(join(root, publicPath))) {
-      fail(`${path} links to missing download: ${href}`)
+      fail(`${path} references missing download: ${href}`)
     }
   }
 }
