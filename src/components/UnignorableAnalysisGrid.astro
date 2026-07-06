@@ -1,0 +1,37 @@
+---
+import { unignorableAnalyses } from '../data/unignorable-analyses'
+
+interface Props {
+  limit?: number
+  showFilters?: boolean
+  showArchiveDisplay?: boolean
+}
+
+const { limit, showFilters = true, showArchiveDisplay = false } = Astro.props
+const analyses = typeof limit === 'number' ? unignorableAnalyses.slice(0, limit) : unignorableAnalyses
+const categories = Array.from(new Set(unignorableAnalyses.map((analysis) => analysis.category)))
+const lenses = Array.from(new Set(unignorableAnalyses.flatMap((analysis) => analysis.lenses)))
+const filterLabels = ['All', ...categories, ...lenses.slice(0, 4)]
+---
+
+{showFilters && (
+  <div class="analysis-filter-bar" aria-label="Analysis filters">
+    {filterLabels.map((label, index) => (
+      <span class={index === 0 ? 'analysis-filter analysis-filter--active' : 'analysis-filter'}>{label}</span>
+    ))}
+  </div>
+)}
+
+<div class="analysis-card-grid">
+  {analyses.map((analysis) => (
+    <article class="analysis-card">
+      <p class="meta">{analysis.reviewLevel} · {analysis.category} · {analysis.year}</p>
+      <h3>{analysis.title}</h3>
+      <p>{showArchiveDisplay ? analysis.archiveDisplay : analysis.summary}</p>
+      <ul class="tag-list" aria-label="Analysis lenses">
+        {analysis.lenses.slice(0, 4).map((lens) => <li class="tag">{lens}</li>)}
+      </ul>
+      <p class="analysis-card__links"><a href={analysis.pdf}>Download PDF</a> · <a href={analysis.metadata}>Metadata</a></p>
+    </article>
+  ))}
+</div>
