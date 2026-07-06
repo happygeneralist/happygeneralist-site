@@ -1,3 +1,13 @@
+export interface UnignorableRelatedArtefact {
+  title: string
+  type: 'addendum' | 'evidence-note' | 'correction' | 'follow-up'
+  date: string
+  reviewLevel: string
+  pdf: string
+  metadata: string
+  summary: string
+}
+
 export interface UnignorableAnalysis {
   title: string
   slug: string
@@ -13,6 +23,7 @@ export interface UnignorableAnalysis {
   lenses: string[]
   summary: string
   archiveDisplay: string
+  relatedArtefacts?: UnignorableRelatedArtefact[]
 }
 
 export const unignorableAnalyses: UnignorableAnalysis[] = [
@@ -30,7 +41,18 @@ export const unignorableAnalyses: UnignorableAnalysis[] = [
     themes: ['child safety', 'online safety', 'social media', 'age assurance', 'platform design', 'privacy'],
     lenses: ['needs erasure', 'displacement risk', 'false efficiency', 'moral compression', 'platform accountability', 'privacy and identity infrastructure'],
     summary: 'An Unignorable analysis of child online safety and social media age-restriction proposals, arguing that a ban may act as a temporary guardrail but risks substituting access restriction for safer platform design.',
-    archiveDisplay: 'A child-safety social media ban may be useful as a temporary guardrail, but it risks becoming symbolic if it hides children from mainstream platforms without forcing safer design, tracking displacement or protecting privacy, support, learning and agency.'
+    archiveDisplay: 'A child-safety social media ban may be useful as a temporary guardrail, but it risks becoming symbolic if it hides children from mainstream platforms without forcing safer design, tracking displacement or protecting privacy, support, learning and agency.',
+    relatedArtefacts: [
+      {
+        title: 'Special addendum: the “9 out of 10 parents” mandate',
+        type: 'addendum',
+        date: '2026-07-06',
+        reviewLevel: 'light review',
+        pdf: '/downloads/unignorable/2026/2026-07-06-social-media-ban-9-out-of-10-parents-addendum.pdf',
+        metadata: '/downloads/unignorable/2026/2026-07-06-social-media-ban-9-out-of-10-parents-addendum.md',
+        summary: 'A focused evidence and framing note on how the “9 out of 10 parents” headline compresses consultation routing, self-selection, parental concern and weaker youth support into a cleaner mandate for a blanket ban.'
+      }
+    ]
   },
   {
     title: 'School absence is framed as a delivery problem, but it is really a needs crisis',
