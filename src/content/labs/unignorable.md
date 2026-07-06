@@ -27,6 +27,7 @@ outputs:
   - needs typology
   - burden and erasure analysis
   - custom LLM expression
+  - analysis archive
 ---
 
 Unignorable is a working framework for identifying where institutions make real human needs easier to ignore.
@@ -66,6 +67,15 @@ One current expression of the framework is a custom LLM called Unignorable.
 The LLM is not the whole framework. It is a way to test whether the diagnostic lens can help analyse policy, language, services and institutional behaviour in a more structured way.
 
 That matters because the wider framework is not only a set of concepts. It is also an attempt to build usable diagnostic practice: something that can surface hidden needs, hidden costs, burden transfer, false neutrality, paternalism and other patterns of erasure.
+
+## Analysis archive
+
+Some applications of the framework are published as downloadable analysis artefacts rather than ordinary site content.
+
+The archive holds short catalogue notes and links to PDFs. The PDFs preserve each analysis as a standalone artefact, with sidecar metadata for future indexing.
+
+- [View the Unignorable analysis archive](/notebook/unignorable-analysis-archive/)
+- [Download: School absence is framed as a delivery problem, but it is really a needs crisis](/downloads/unignorable/2026/2026-07-05-school-absence-needs-crisis.pdf)
 
 ## Why it sits in Labs
 
