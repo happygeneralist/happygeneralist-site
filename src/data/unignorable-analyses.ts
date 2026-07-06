@@ -51,6 +51,15 @@ export const unignorableAnalyses: UnignorableAnalysis[] = [
         pdf: '/downloads/unignorable/2026/2026-07-06-social-media-ban-9-out-of-10-parents-addendum.pdf',
         metadata: '/downloads/unignorable/2026/2026-07-06-social-media-ban-9-out-of-10-parents-addendum.md',
         summary: 'A focused evidence and framing note on how the “9 out of 10 parents” headline compresses consultation routing, self-selection, parental concern and weaker youth support into a cleaner mandate for a blanket ban.'
+      },
+      {
+        title: 'Addendum: technology companies, burden-shifting and safety at source',
+        type: 'addendum',
+        date: '2026-07-06',
+        reviewLevel: 'light review',
+        pdf: '/downloads/unignorable/2026/2026-07-06-social-media-ban-technology-companies-burden-shifting-addendum.pdf',
+        metadata: '/downloads/unignorable/2026/2026-07-06-social-media-ban-technology-companies-burden-shifting-addendum.md',
+        summary: 'A focused accountability note on whether the policy forces technology companies to make platforms safer at source, or whether it also shifts practical safety burdens onto users, parents, children, regulators and age-assurance infrastructure.'
       }
     ]
   },
