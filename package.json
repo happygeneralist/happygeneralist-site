@@ -8,9 +8,10 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro check && astro build",
+    "build": "astro check && astro build && npm run verify",
     "preview": "astro preview",
-    "check": "astro check"
+    "check": "astro check",
+    "verify": "node scripts/verify-site.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^5.0.6",
