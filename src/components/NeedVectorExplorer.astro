@@ -55,6 +55,10 @@ const initialSolutions = solutionStates
         <text x="232" y="152">Solution field</text>
       </svg>
       <p data-need-interpretation>{initialNeed.interpretation}</p>
+      <div class={initialNeed.warning ? 'need-vector-explorer__warning' : 'need-vector-explorer__warning is-hidden'} data-need-warning>
+        <strong>Red flag</strong>
+        <p>{initialNeed.warning}</p>
+      </div>
     </div>
 
     <div class="need-vector-explorer__dimension-panel" aria-label="Need vector dimensions">
@@ -92,6 +96,8 @@ const initialSolutions = solutionStates
 
     const sentence = root.querySelector('[data-need-sentence]')
     const interpretation = root.querySelector('[data-need-interpretation]')
+    const warning = root.querySelector('[data-need-warning]')
+    const warningText = warning.querySelector('p')
     const rotator = root.querySelector('[data-vector-rotator]')
     const buttons = [...root.querySelectorAll('[data-need-button]')]
     const solutionCloud = root.querySelector('.need-vector-explorer__cloud')
@@ -103,6 +109,14 @@ const initialSolutions = solutionStates
       sentence.textContent = need.sentence
       interpretation.textContent = need.interpretation
       rotator.style.transform = `rotate(${need.angle}deg)`
+
+      if (need.warning) {
+        warningText.textContent = need.warning
+        warning.classList.remove('is-hidden')
+      } else {
+        warningText.textContent = ''
+        warning.classList.add('is-hidden')
+      }
 
       buttons.forEach((button) => {
         button.classList.toggle('is-active', button.dataset.needButton === needId)
