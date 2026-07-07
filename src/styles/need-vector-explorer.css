@@ -143,6 +143,31 @@
   font-size: 1.05rem;
 }
 
+.need-vector-explorer__warning {
+  margin-top: var(--space-4);
+  padding: var(--space-4);
+  border-left: 4px solid #b42318;
+  border-radius: 0 var(--radius-s) var(--radius-s) 0;
+  background: #fff4f2;
+  color: #7a271a;
+  box-shadow: var(--surface-outline);
+}
+
+.need-vector-explorer__warning strong {
+  display: block;
+  margin-bottom: var(--space-2);
+  color: #7a271a;
+}
+
+.need-vector-explorer__warning p {
+  margin: 0;
+  font-size: 0.98rem;
+}
+
+.need-vector-explorer__warning.is-hidden {
+  display: none;
+}
+
 .need-vector-explorer__dimension-panel h3,
 .need-vector-explorer__solution-panel h3 {
   margin-top: 0;
