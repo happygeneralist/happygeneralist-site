@@ -1,0 +1,28 @@
+mark,
+.highlight {
+  padding: 0.02em 0.22em 0.04em;
+  border-radius: 0.18em;
+  color: inherit;
+  font-weight: 650;
+  background:
+    linear-gradient(
+      -1.2deg,
+      transparent 2%,
+      rgb(255 224 102 / 0.84) 2%,
+      rgb(255 232 128 / 0.92) 43%,
+      rgb(255 218 89 / 0.82) 74%,
+      transparent 96%
+    ),
+    linear-gradient(
+      1deg,
+      transparent 13%,
+      rgb(255 238 166 / 0.44) 15%,
+      rgb(255 209 64 / 0.34) 82%,
+      transparent 91%
+    );
+  background-position: 0 0.02em, 0 0.18em;
+  background-repeat: no-repeat;
+  background-size: 100% 1.12em, 100% 0.86em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
