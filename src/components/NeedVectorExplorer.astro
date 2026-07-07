@@ -1,0 +1,131 @@
+---
+import { needDimensions, needStates, solutionStates } from '../data/need-vectors'
+
+const componentId = `need-vector-${Math.random().toString(36).slice(2)}`
+const initialNeed = needStates[0]
+
+const scoreSolution = (needVector: typeof initialNeed.vector, solutionVector: typeof solutionStates[number]['vector']) => {
+  const dot = needDimensions.reduce((sum, dimension) => sum + needVector[dimension.id] * solutionVector[dimension.id], 0)
+  const needMagnitude = Math.sqrt(needDimensions.reduce((sum, dimension) => sum + needVector[dimension.id] ** 2, 0))
+  const solutionMagnitude = Math.sqrt(needDimensions.reduce((sum, dimension) => sum + solutionVector[dimension.id] ** 2, 0))
+  return dot / (needMagnitude * solutionMagnitude)
+}
+
+const initialSolutions = solutionStates
+  .map((solution) => ({ ...solution, score: scoreSolution(initialNeed.vector, solution.vector) }))
+  .sort((a, b) => b.score - a.score)
+---
+
+<section class="need-vector-explorer" id={componentId} aria-labelledby={`${componentId}-title`}>
+  <div class="need-vector-explorer__header">
+    <p class="meta">Interactive sketch</p>
+    <h2 id={`${componentId}-title`}>User needs are vectors, not labels</h2>
+    <p>Change the need and watch the solution field rotate. The point is not that the wording is prettier. The wording changes what kind of response the system starts to select.</p>
+  </div>
+
+  <div class="need-vector-explorer__sentence" aria-live="polite">
+    <span class="need-vector-explorer__anchor-label">Current need</span>
+    <p data-need-sentence>{initialNeed.sentence}</p>
+    <span class="need-vector-explorer__anchor-node" aria-hidden="true"></span>
+  </div>
+
+  <div class="need-vector-explorer__controls" aria-label="Need variants">
+    {needStates.map((need, index) => (
+      <button type="button" class={index === 0 ? 'is-active' : ''} data-need-button={need.id}>
+        {need.label}
+      </button>
+    ))}
+  </div>
+
+  <div class="need-vector-explorer__canvas">
+    <div class="need-vector-explorer__vector-panel" aria-label="Need direction vector">
+      <svg viewBox="0 0 360 240" role="img" aria-labelledby={`${componentId}-vector-title`}>
+        <title id={`${componentId}-vector-title`}>Vector from user need to solution field</title>
+        <defs>
+          <marker id={`${componentId}-arrow`} viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z"></path>
+          </marker>
+        </defs>
+        <line x1="70" y1="120" x2="290" y2="120" class="need-vector-explorer__axis"></line>
+        <circle cx="70" cy="120" r="10" class="need-vector-explorer__origin"></circle>
+        <g data-vector-rotator style={`transform: rotate(${initialNeed.angle}deg); transform-origin: 70px 120px;`}>
+          <line x1="70" y1="120" x2="255" y2="120" class="need-vector-explorer__vector" marker-end={`url(#${componentId}-arrow)`}></line>
+        </g>
+        <text x="52" y="152">Need anchor</text>
+        <text x="232" y="152">Solution field</text>
+      </svg>
+      <p data-need-interpretation>{initialNeed.interpretation}</p>
+    </div>
+
+    <div class="need-vector-explorer__dimension-panel" aria-label="Need vector dimensions">
+      <h3>Need direction</h3>
+      <div class="need-vector-explorer__dimensions">
+        {needDimensions.map((dimension) => (
+          <div class="need-vector-explorer__dimension" data-dimension={dimension.id}>
+            <span>{dimension.label}</span>
+            <div class="need-vector-explorer__bar-track"><span style={`width: ${initialNeed.vector[dimension.id] * 10}%`}></span></div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="need-vector-explorer__solution-panel" aria-label="Weighted solution field">
+      <h3>Solution field</h3>
+      <div class="need-vector-explorer__cloud">
+        {initialSolutions.map((solution) => {
+          const size = 0.85 + solution.score * 0.75
+          const opacity = 0.32 + solution.score * 0.68
+          return <span style={`font-size: ${size}rem; opacity: ${opacity};`} data-solution={solution.label}>{solution.label}</span>
+        })}
+      </div>
+    </div>
+  </div>
+
+  <script is:inline define:vars={{ componentId, needStates, solutionStates, needDimensions }}>
+    const root = document.getElementById(componentId)
+
+    const magnitude = (vector) => Math.sqrt(needDimensions.reduce((sum, dimension) => sum + vector[dimension.id] ** 2, 0))
+    const scoreSolution = (needVector, solutionVector) => {
+      const dot = needDimensions.reduce((sum, dimension) => sum + needVector[dimension.id] * solutionVector[dimension.id], 0)
+      return dot / (magnitude(needVector) * magnitude(solutionVector))
+    }
+
+    const sentence = root.querySelector('[data-need-sentence]')
+    const interpretation = root.querySelector('[data-need-interpretation]')
+    const rotator = root.querySelector('[data-vector-rotator]')
+    const buttons = [...root.querySelectorAll('[data-need-button]')]
+    const solutionCloud = root.querySelector('.need-vector-explorer__cloud')
+
+    const renderNeed = (needId) => {
+      const need = needStates.find((item) => item.id === needId)
+      if (!need) return
+
+      sentence.textContent = need.sentence
+      interpretation.textContent = need.interpretation
+      rotator.style.transform = `rotate(${need.angle}deg)`
+
+      buttons.forEach((button) => {
+        button.classList.toggle('is-active', button.dataset.needButton === needId)
+      })
+
+      needDimensions.forEach((dimension) => {
+        const bar = root.querySelector(`[data-dimension="${dimension.id}"] .need-vector-explorer__bar-track span`)
+        if (bar) bar.style.width = `${need.vector[dimension.id] * 10}%`
+      })
+
+      const scoredSolutions = solutionStates
+        .map((solution) => ({ ...solution, score: scoreSolution(need.vector, solution.vector) }))
+        .sort((a, b) => b.score - a.score)
+
+      solutionCloud.innerHTML = scoredSolutions.map((solution) => {
+        const size = 0.85 + solution.score * 0.75
+        const opacity = 0.32 + solution.score * 0.68
+        return `<span style="font-size: ${size}rem; opacity: ${opacity};" data-solution="${solution.label}">${solution.label}</span>`
+      }).join('')
+    }
+
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => renderNeed(button.dataset.needButton))
+    })
+  </script>
+</section>
