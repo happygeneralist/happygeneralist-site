@@ -1,4 +1,7 @@
 .need-vector-explorer {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
   width: min(100vw - 2rem, var(--lab-page-width));
   max-width: none;
   margin: var(--space-7) 0;
