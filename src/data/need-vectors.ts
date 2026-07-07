@@ -7,6 +7,7 @@ export interface NeedState {
   anchor: string
   angle: number
   interpretation: string
+  warning?: string
   vector: Record<NeedDimension, number>
 }
 
@@ -33,6 +34,7 @@ export const needStates: NeedState[] = [
     anchor: 'understand',
     angle: -28,
     interpretation: 'This is mostly a cognitive need. It points towards explanation, orientation and language clarity.',
+    warning: 'Red flag: users rarely need to understand something for its own sake. GOV.UK guidance treats “understand” needs as exceptional because they are often hard to test and can hide the real thing the person needs to do, decide, access or resolve.',
     vector: { comprehension: 10, comparison: 3, judgement: 2, access: 1, agency: 1, continuity: 0, redress: 0 }
   },
   {
