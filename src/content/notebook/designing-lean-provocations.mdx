@@ -47,6 +47,8 @@ extracts:
     description: Develop the claim that organisational narratives can be tested, destabilised and redesigned.
 featured: true
 ---
+import ContentTable from '../../components/ContentTable.astro'
+
 <h2 id="background">Background</h2>
 
 [ExConf 2017](https://2017.exconf.com/) (Experience Conference) was a two-day, international UX and digital innovation event held on 9–10 March 2017 at the Waterworks Museum in Bratislava, bringing together designers, researchers, and strategists from across the globe to share work and shape user-centred practice.
@@ -399,17 +401,21 @@ Heifetz and colleagues distinguish technical challenges (clear solutions) from a
 
 ### Integration with other frameworks
 
-| Framework or Principle | How Lean Provocations Complement It | Key Takeaway |
-| --- | --- | --- |
-| Creative Tension (Senge) | Provocations create tangible artifacts representing the vision, allowing teams to experience the gap between current reality and desired future | Maintain the tension without lowering aspirations. |
-| Blue Ocean Strategy | Provocations help imagine new market spaces by making alternative offerings tangible; they encourage exploring uncontested territories | Use provocations to generate “blue ocean” ideas. |
-| Effectuation | By using available resources (e.g., cardboard, paper, simple scripts), provocations embody effectual reasoning | Start with what you have; let new goals emerge. |
-| Frugal Innovation | Provocations embrace constraint; they prove that innovation can occur without heavy investment | Scarcity is a spur, not a barrier. |
-| Nudge Theory | Provocations nudge stakeholders toward new perspectives through subtle changes in environment or narratives | Design experiences that guide rather than force. |
-| Complexity Leadership | Provocations create sites for emergent interactions across silos, fostering bottom-up innovation | Foster interactions and resist top-down control. |
-| Psychological Safety | Provocations require a climate where people feel safe to disagree and explore | Build trust before provoking. |
-| Speculative Design | Provocations borrow from speculative design by crafting artefacts from possible futures to stimulate debate | Use future narratives to challenge present assumptions. |
-| Adaptive Leadership | Provocations reveal whether a challenge is technical or adaptive and encourage experimentation | Lead by learning and adjusting. |
+<ContentTable
+  caption="How lean provocations connect to neighbouring frameworks and principles."
+  columns={['Framework or principle', 'How lean provocations complement it', 'Key takeaway']}
+  rows={[
+    ['Creative tension (Senge)', 'Provocations create tangible artefacts representing the vision, allowing teams to experience the gap between current reality and desired future.', 'Maintain the tension without lowering aspirations.'],
+    ['Blue Ocean Strategy', 'Provocations help imagine new market spaces by making alternative offerings tangible; they encourage exploring uncontested territories.', 'Use provocations to generate “blue ocean” ideas.'],
+    ['Effectuation', 'By using available resources, for example cardboard, paper, or simple scripts, provocations embody effectual reasoning.', 'Start with what you have; let new goals emerge.'],
+    ['Frugal Innovation', 'Provocations embrace constraint; they prove that innovation can occur without heavy investment.', 'Scarcity is a spur, not a barrier.'],
+    ['Nudge Theory', 'Provocations nudge stakeholders towards new perspectives through subtle changes in environment or narratives.', 'Design experiences that guide rather than force.'],
+    ['Complexity Leadership', 'Provocations create sites for emergent interactions across silos, fostering bottom-up innovation.', 'Foster interactions and resist top-down control.'],
+    ['Psychological Safety', 'Provocations require a climate where people feel safe to disagree and explore.', 'Build trust before provoking.'],
+    ['Speculative Design', 'Provocations borrow from speculative design by crafting artefacts from possible futures to stimulate debate.', 'Use future narratives to challenge present assumptions.'],
+    ['Adaptive Leadership', 'Provocations reveal whether a challenge is technical or adaptive and encourage experimentation.', 'Lead by learning and adjusting.']
+  ]}
+/>
 
 ### Avoiding misuse
 
@@ -455,7 +461,7 @@ Most change starts smaller than people want to admit: a sketch, a conversation, 
 ### Books and theories
 
 - De Bono, Edward. *PO: A Device for Successful Thinking*. Penguin, 1971.
-- Senge, Peter. *The Fifth Discipline: The Art and Practice of the Learning Organization*. Doubleday, 1990.
+- Senge, Peter. *The Fifth Discipline: The Art of the Learning Organization*. Doubleday, 1990.
 - Festinger, Leon. *A Theory of Cognitive Dissonance*. Stanford University Press, 1957.
 - Kim, W. Chan, and Mauborgne, Renée. *Blue Ocean Strategy: How to Create Uncontested Market Space and Make the Competition Irrelevant*. Harvard Business Review Press, 2005.
 - Sarasvathy, Saras. *Effectuation: Elements of Entrepreneurial Expertise*. Edward Elgar, 2008.
