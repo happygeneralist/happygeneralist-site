@@ -19,6 +19,9 @@ const href = (path: string) => `${base}${path}`.replace(/\/\/+/g, '/')
 const asset = href
 const brandImage = isHome ? 'images/brand/happygeneralist-logo-full.png' : 'images/brand/happygeneralist-mark.png'
 const analyticsId = 'G-SG2T4HKS6S'
+const productionSite = Astro.site ?? new URL('https://happygeneralist.com')
+const canonicalUrl = new URL(Astro.url.pathname, productionSite).href
+const sitemapUrl = new URL('sitemap-index.xml', productionSite).href
 ---
 
 <!doctype html>
@@ -27,6 +30,8 @@ const analyticsId = 'G-SG2T4HKS6S'
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href={sitemapUrl} />
     <title>{pageTitle}</title>
     {import.meta.env.PROD && (
       <>
