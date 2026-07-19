@@ -8,9 +8,10 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro check && astro build && npm run verify",
+    "build": "astro check && astro build && npm run generate:sitemap && npm run verify",
     "preview": "astro preview",
     "check": "astro check",
+    "generate:sitemap": "node scripts/generate-sitemap.mjs",
     "verify": "node scripts/verify-site.mjs"
   },
   "dependencies": {
