@@ -46,8 +46,6 @@ When it cannot, the immediate cost falls on the signal-bearer. The larger cost i
 
 The organisation protects the performance of transformation from transformation itself.
 
-Throughout this Notebook, I use **organisational antibodies** as a memorable working metaphor. The underlying phenomenon is closer to what might be described as **identity-protective organisational non-learning**. Whether the metaphor survives further research remains an open question.
-
 ## Further reading
 
 This note is a working synthesis rather than a settled theory. These are useful starting points for the established research around it:
