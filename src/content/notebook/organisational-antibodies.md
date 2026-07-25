@@ -46,9 +46,9 @@ When it cannot, the immediate cost falls on the signal-bearer. The larger cost i
 
 The organisation protects the performance of transformation from transformation itself.
 
-## Further reading
+## Reading around this
 
-This note is a working synthesis rather than a settled theory. These are useful starting points for the established research around it:
+This is a working synthesis. These are some of the ideas and research connected to it:
 
 - [Chris Argyris on defensive routines and organisational learning](https://scholar.google.com/scholar?q=Chris+Argyris+defensive+routines+double-loop+learning)
 - [Threat-rigidity effects in organisational behaviour — Staw, Sandelands and Dutton](https://scholar.google.com/scholar?q=Threat-rigidity+effects+in+organizational+behavior+Staw+Sandelands+Dutton)
