@@ -73,7 +73,11 @@ const labs = defineCollection({
   loader: contentLoader('labs'),
   schema: baseSchema.extend({
     lab_type: z.enum(['case-study', 'prototype', 'experiment', 'system', 'visual-essay']).default('experiment'),
-    layout: z.enum(['standard', 'magazine', 'canvas', 'interactive']).default('standard'),
+    layout: z.union([
+      z.enum(['standard', 'magazine', 'canvas', 'interactive']),
+      z.literal('../../layouts/MdxContentPassthrough.astro')
+    ]).default('standard'),
+    layout_mode: z.enum(['standard', 'magazine', 'canvas', 'interactive']).optional(),
     project_status: z.enum(['concept', 'active', 'paused', 'complete', 'archived']).default('concept'),
     preview_image: imageAssetSchema.optional(),
     source_repos: z.array(z.string()).default([]),

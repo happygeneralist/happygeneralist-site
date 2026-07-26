@@ -6,6 +6,16 @@
   display: block;
 }
 
+.responsive-image__label {
+  display: block;
+  margin-bottom: var(--space-2);
+  color: var(--colour-muted);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 .responsive-image img {
   display: block;
   width: 100%;
