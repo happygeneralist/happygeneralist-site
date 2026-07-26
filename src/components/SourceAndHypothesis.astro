@@ -1,0 +1,47 @@
+---
+import ResponsiveImage from './ResponsiveImage.astro'
+
+interface Props {
+  title?: string
+  sourceSrc: string
+  sourceAlt: string
+  hypothesisSrc: string
+  hypothesisAlt: string
+  note?: string
+  caption?: string
+  variant?: 'standard' | 'hero'
+}
+
+const {
+  title,
+  sourceSrc,
+  sourceAlt,
+  hypothesisSrc,
+  hypothesisAlt,
+  note,
+  caption,
+  variant = 'standard'
+} = Astro.props
+---
+
+<section class={`source-hypothesis source-hypothesis--${variant}`} aria-label={title ?? 'Source photograph and visual hypothesis'}>
+  {title && <h3 class="source-hypothesis__title">{title}</h3>}
+  <div class="source-hypothesis__images">
+    <ResponsiveImage
+      src={sourceSrc}
+      alt={sourceAlt}
+      label="Source photograph"
+      variant="lab-preview"
+      sizes="(min-width: 1100px) 50vw, calc(100vw - 4rem)"
+    />
+    <ResponsiveImage
+      src={hypothesisSrc}
+      alt={hypothesisAlt}
+      label="AI-assisted visual hypothesis"
+      caption={caption}
+      variant="lab-preview"
+      sizes="(min-width: 1100px) 50vw, calc(100vw - 4rem)"
+    />
+  </div>
+  {note && <p class="source-hypothesis__note">{note}</p>}
+</section>
