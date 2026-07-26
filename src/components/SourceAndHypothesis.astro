@@ -19,29 +19,29 @@ const {
   hypothesisSrc,
   hypothesisAlt,
   note,
-  caption,
+  caption = 'Generated with AI from the original photograph as a visual study. Not a structural, conservation, planning or cost assessment.',
   variant = 'standard'
 } = Astro.props
 ---
 
-<section class={`source-hypothesis source-hypothesis--${variant}`} aria-label={title ?? 'Source photograph and visual hypothesis'}>
+<section class={`source-hypothesis source-hypothesis--${variant}`} aria-label={title ?? 'Original photograph and restoration visualisation'}>
   {title && <h3 class="source-hypothesis__title">{title}</h3>}
   <div class="source-hypothesis__images">
     <ResponsiveImage
       src={sourceSrc}
       alt={sourceAlt}
-      label="Source photograph"
+      label="Original photograph"
       variant="lab-preview"
       sizes="(min-width: 1100px) 50vw, calc(100vw - 4rem)"
     />
     <ResponsiveImage
       src={hypothesisSrc}
       alt={hypothesisAlt}
-      label="AI-assisted visual hypothesis"
-      caption={caption}
+      label="Restoration visualisation"
       variant="lab-preview"
       sizes="(min-width: 1100px) 50vw, calc(100vw - 4rem)"
     />
   </div>
+  {caption && <p class="source-hypothesis__caption">{caption}</p>}
   {note && <p class="source-hypothesis__note">{note}</p>}
 </section>
