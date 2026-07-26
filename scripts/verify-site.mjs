@@ -52,6 +52,7 @@ if (/base\s*:/.test(astroConfig)) {
 
 const sourceFiles = walk('src').filter((path) => /\.(astro|md|mdx|ts|js|css)$/.test(path))
 const publicFiles = walk('public')
+const modularLabLayouts = new Set(['magazine', 'canvas', 'interactive'])
 
 for (const path of sourceFiles) {
   const content = read(path)
@@ -76,6 +77,15 @@ for (const path of sourceFiles) {
 for (const path of publicFiles) {
   if (/\s/.test(path)) {
     fail(`${path} contains whitespace; public download and asset filenames should use kebab case without spaces`)
+  }
+}
+
+for (const path of sourceFiles.filter((path) => path.startsWith('content/labs/') && path.endsWith('.md'))) {
+  const content = read(path)
+  const layout = content.match(/^layout:\s*([^\s]+)\s*$/m)?.[1]
+
+  if (layout && modularLabLayouts.has(layout) && !content.includes('lab-panel')) {
+    fail(`${path} uses a modular Lab layout without explicit lab-panel wrappers; use MDX for structured panels or add supported wrappers`)
   }
 }
 
