@@ -96,9 +96,15 @@
 }
 
 .source-hypothesis__note {
-  max-width: 78ch;
-  margin: var(--space-5) 0 0;
+  margin: var(--space-3) 0 0;
   color: var(--colour-muted);
+}
+
+.source-hypothesis__caption {
+  margin: var(--space-4) 0 0;
+  color: #42464c;
+  font-size: 0.95rem;
+  line-height: 1.55;
 }
 
 .source-hypothesis--hero {
