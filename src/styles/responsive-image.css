@@ -85,3 +85,7 @@
   object-position: top center;
   box-shadow: var(--elevation-3);
 }
+
+.responsive-image--lab-index-preview {
+  margin: 0;
+}
